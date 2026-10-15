@@ -1,0 +1,1254 @@
+/* ==========================================================================
+   HOJA DE ESTILOS: styles.css
+   Perfil Profesional Digital Accesible - Victor Moran
+   Estándar: WCAG 2.1 Nivel AA / AAA en contrastes clave
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE DISEÑO Y TEMAS (Custom Properties)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Escala de texto accesible */
+  --font-scale: 1;
+  --font-base: 1rem; /* 16px */
+  --line-height-base: 1.6;
+  --line-height-heading: 1.25;
+
+  /* Familia tipográfica legible y neutral */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Paleta Tema Claro (WCAG AA y AAA) */
+  --bg-primary: #F8FAFC;        /* Fondo principal (Slate 50) */
+  --bg-surface: #FFFFFF;        /* Superficie de tarjetas */
+  --bg-surface-alt: #F1F5F9;    /* Superficie secundaria (Slate 100) */
+  --bg-surface-elevated: #FFFFFF;
+  --border-color: #CBD5E1;      /* Borde accesible (Slate 300 - ratio 3.2:1 con blanco) */
+  --border-subtle: #E2E8F0;     /* Separadores suaves */
+  
+  --text-primary: #0F172A;      /* Texto principal (Slate 900 - ratio > 15:1 con fondo) */
+  --text-secondary: #334155;    /* Texto secundario (Slate 700 - ratio > 9:1 con fondo) */
+  --text-muted: #475569;        /* Texto de apoyo (Slate 600 - ratio 5.7:1 con fondo) */
+  --text-inverse: #FFFFFF;
+
+  --accent-color: #0369A1;      /* Azul Cerúleo accesible (Sky 700 - ratio 5.9:1 con blanco) */
+  --accent-hover: #075985;      /* Sky 800 */
+  --accent-light: #E0F2FE;      /* Sky 100 */
+  --accent-text: #0C4A6E;       /* Sky 900 */
+
+  --focus-ring-color: #0284C7;  /* Anillo de foco primario */
+  --focus-ring-outline: #0F172A;/* Contorno exterior para alto contraste */
+  
+  --badge-bg: #E2E8F0;
+  --badge-text: #0F172A;
+  
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.08);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --transition-speed: 0.2s;
+  --container-max-width: 1080px;
+}
+
+/* Tema Oscuro */
+[data-theme="dark"] {
+  --bg-primary: #0B0F19;        /* Azul muy profundo / Noche */
+  --bg-surface: #131B2E;        /* Superficie tarjetas oscuras */
+  --bg-surface-alt: #1E293B;    /* Superficie secundaria */
+  --bg-surface-elevated: #243049;
+  --border-color: #475569;      /* Borde contrastante */
+  --border-subtle: #334155;
+
+  --text-primary: #F8FAFC;      /* Texto principal casi blanco (ratio > 15:1) */
+  --text-secondary: #CBD5E1;    /* Texto secundario (ratio > 9:1) */
+  --text-muted: #94A3B8;        /* Texto atenuado accesible (ratio > 5:1) */
+  --text-inverse: #0F172A;
+
+  --accent-color: #38BDF8;      /* Sky 400 (ratio 8.8:1 sobre #131B2E) */
+  --accent-hover: #7DD3FC;      /* Sky 300 */
+  --accent-light: #0C4A6E;      /* Fondo suave acento */
+  --accent-text: #F0F9FF;
+
+  --focus-ring-color: #38BDF8;
+  --focus-ring-outline: #FFFFFF;
+
+  --badge-bg: #1E293B;
+  --badge-text: #F8FAFC;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET Y REGLAS BASE
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: calc(var(--font-base) * var(--font-scale));
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: var(--line-height-base);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Respeto a preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. ACCESIBILIDAD: FOCO VISIBLE Y SKIP LINK
+   -------------------------------------------------------------------------- */
+/* Enlace para saltar al contenido principal */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 0.85rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: var(--radius-sm);
+  z-index: 10000;
+  text-decoration: underline;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--accent-color);
+  transition: top var(--transition-speed) ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 3px solid var(--focus-ring-color);
+  outline-offset: 3px;
+}
+
+/* Indicador de foco global prominente (WCAG 2.4.7) */
+:focus-visible {
+  outline: 3px solid var(--focus-ring-color);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Clases para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Anunciador en vivo para cambios dinámicos (WCAG 4.1.3) */
+#a11y-announcer {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. TIPOGRAFÍA Y JERARQUÍA
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  color: var(--text-primary);
+  line-height: var(--line-height-heading);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: var(--radius-full);
+  margin-top: 0.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* --------------------------------------------------------------------------
+   5. CONTENEDOR Y ESTRUCTURA DE PÁGINA
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* Encabezado fijo y barra de navegación superior */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  gap: 1rem;
+}
+
+.brand-link {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: var(--accent-light);
+  color: var(--accent-text);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.05em;
+}
+
+/* Navegación */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 0.25rem;
+  align-items: center;
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-speed) ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+  background-color: var(--bg-surface-alt);
+}
+
+.nav-link.active,
+.nav-link[aria-current="page"] {
+  color: var(--accent-color);
+  font-weight: 700;
+  background-color: var(--accent-light);
+}
+
+/* Botón menú móvil (hamburguesa) */
+.mobile-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  min-height: 44px; /* Tamaño mínimo táctil WCAG */
+}
+
+/* --------------------------------------------------------------------------
+   6. CONTROLES FLOTANTES DE ACCESIBILIDAD Y TEMA
+   -------------------------------------------------------------------------- */
+.floating-a11y-toolbar {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 1050;
+}
+
+.theme-toggle-btn {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-full);
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-speed) ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--bg-surface-alt);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+.theme-icon-sun,
+.theme-icon-moon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* En tema claro mostramos icono de Luna (para pasar a oscuro); en oscuro mostramos Sol */
+[data-theme="light"] .theme-icon-sun {
+  display: none;
+}
+[data-theme="light"] .theme-icon-moon {
+  display: block;
+}
+[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
+[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+
+/* Controles de tamaño de texto */
+.text-size-controls {
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+  box-shadow: var(--shadow-lg);
+  gap: 0.15rem;
+}
+
+.size-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-speed) ease;
+  font-size: 0.95rem;
+}
+
+.size-btn:hover {
+  background-color: var(--bg-surface-alt);
+  color: var(--accent-color);
+}
+
+.size-btn.active {
+  background-color: var(--accent-color);
+  color: var(--text-inverse);
+}
+
+/* --------------------------------------------------------------------------
+   7. SECCIONES GENERALES
+   -------------------------------------------------------------------------- */
+main {
+  flex: 1;
+}
+
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section-intro {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+/* Indicador de elementos por completar para el usuario */
+.placeholder-fill {
+  background-color: #FEF3C7;
+  color: #92400E;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  border: 1px dashed #D97706;
+  display: inline-block;
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+}
+
+[data-theme="dark"] .placeholder-fill {
+  background-color: #451A03;
+  color: #FDE68A;
+  border-color: #B45309;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECCIÓN 1: ACERCA DE MÍ (Hero & About)
+   -------------------------------------------------------------------------- */
+.hero-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero-wrapper {
+    grid-template-columns: 280px 1fr;
+    gap: 3.5rem;
+  }
+}
+
+.hero-avatar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-avatar-frame {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  border-radius: var(--radius-lg);
+  border: 4px solid var(--accent-color);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  background-color: var(--bg-surface-alt);
+}
+
+.hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-tagline {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.hero-name {
+  font-size: 2.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.hero-role {
+  font-size: 1.35rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.hero-bio {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.hero-quick-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.meta-item svg {
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Botones estándar de acción */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  min-height: 48px;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--accent-color);
+  color: var(--text-inverse);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  color: var(--text-inverse);
+}
+
+.btn-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-surface-alt);
+  border-color: var(--accent-color);
+  color: var(--text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   9. SECCIÓN 2: ESTUDIOS (Educación y Cursos)
+   -------------------------------------------------------------------------- */
+.education-group {
+  margin-bottom: 3rem;
+}
+
+.education-group:last-child {
+  margin-bottom: 0;
+}
+
+.subsection-heading {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.timeline-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 5px solid var(--accent-color);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.timeline-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+.card-institution {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.badge-date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.badge-status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: var(--accent-light);
+  color: var(--accent-text);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+.bullet-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.bullet-list li {
+  margin-bottom: 0.45rem;
+  line-height: 1.5;
+}
+
+.bullet-list li:last-child {
+  margin-bottom: 0;
+}
+
+.bullet-list-note {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   10. SECCIÓN 3: EXPERIENCIA
+   -------------------------------------------------------------------------- */
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.experience-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 5px solid var(--accent-color);
+}
+
+.company-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. SECCIÓN 4: HABILIDADES Y LENGUAJES (Nivel Visual Accesible)
+   -------------------------------------------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.skills-category {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.95rem;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.skill-level-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+/* Barra de progreso visual accesible */
+.skill-bar-wrapper {
+  width: 100%;
+  height: 12px;
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease-out;
+}
+
+/* Sección de lenguajes / idiomas */
+.languages-box {
+  margin-top: 2rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.languages-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .languages-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.language-card {
+  background-color: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.language-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. SECCIÓN 5: PROYECTOS (Tarjetas con Metadatos)
+   -------------------------------------------------------------------------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.project-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
+}
+
+.tech-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: var(--bg-surface-alt);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.project-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.project-link {
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. SECCIÓN 6: CONTACTOS (Datos y Formulario Accesible)
+   -------------------------------------------------------------------------- */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 860px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr 1.25fr;
+  }
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-icon-wrapper {
+  background-color: var(--accent-light);
+  color: var(--accent-color);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.05em;
+}
+
+.contact-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Formulario accesible */
+.contact-form-container {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.required-mark {
+  color: #DC2626;
+  font-weight: 700;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-speed) ease;
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--focus-ring-color);
+  outline: 3px solid var(--focus-ring-color);
+  outline-offset: 1px;
+}
+
+.form-input[aria-invalid="true"],
+.form-textarea[aria-invalid="true"] {
+  border-color: #DC2626;
+}
+
+.field-error {
+  display: none;
+  color: #DC2626;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+[data-theme="dark"] .field-error {
+  color: #F87171;
+}
+
+.field-error.visible {
+  display: block;
+}
+
+.form-status-alert {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  display: none;
+}
+
+.form-status-alert.success {
+  display: block;
+  background-color: #DCFCE7;
+  color: #166534;
+  border: 1px solid #86EFAC;
+}
+
+[data-theme="dark"] .form-status-alert.success {
+  background-color: #064E3B;
+  color: #D1FAE5;
+  border-color: #059669;
+}
+
+/* --------------------------------------------------------------------------
+   14. SECCIÓN 7: REDES PROFESIONALES
+   -------------------------------------------------------------------------- */
+.social-links-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 600px) {
+  .social-links-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .social-links-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-speed) ease;
+}
+
+.social-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-md);
+}
+
+.social-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-surface-alt);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.social-card:hover .social-icon-wrapper {
+  background-color: var(--accent-color);
+  color: var(--text-inverse);
+}
+
+.social-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.social-handle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   15. FOOTER (Pie de página semántico)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border-color);
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   16. MEDIA QUERIES RESPONSIVAS (Mobile-First)
+   -------------------------------------------------------------------------- */
+@media (max-width: 860px) {
+  .mobile-nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-surface);
+    border-bottom: 2px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    display: none;
+    padding: 1rem;
+  }
+
+  .nav-menu.is-open {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 0.75rem 1rem;
+  }
+}

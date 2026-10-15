@@ -1,0 +1,8 @@
+# Archivos de sistema y entorno
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs y temporales
+*.log
+.system_generated/
