@@ -142,3 +142,5 @@ Por directriz de fidelidad con el CV, no se inventó información faltante. Pued
 ## 📄 Licencia y Créditos
 - **Autor**: Victor Moran
 - **Desarrollo**: Front-End Vanilla con enfoque en Accesibilidad Web (WCAG 2.1 AA).
+#   P a g e P o r t a f o l i o W e b - A g e n t A  
+ 
