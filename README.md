@@ -1,4 +1,5 @@
-# Perfil Profesional Digital Accesible — Victor Moran
+# PagePortafolioWeb-AgentA
+### Perfil Profesional Digital Accesible — Victor Moran
 
 Sitio web de una sola página (*single-page application* estática) diseñado y construido con los más altos estándares de calidad front-end y accesibilidad web (**WCAG 2.1 Nivel AA / AAA**). Preparado para su publicación inmediata en **Netlify**.
 
@@ -16,11 +17,12 @@ Sitio web de una sola página (*single-page application* estática) diseñado y 
 ## 📂 Estructura del Proyecto
 
 ```text
-AppAntigravityVM/
+PagePortafolioWeb-AgentA/
 ├── index.html          # Estructura semántica completa (las 7 secciones en orden)
 ├── styles.css          # Hoja de estilos con variables de color, modo oscuro y reglas a11y
 ├── script.js           # Lógica interactiva accesible, tema y escalado tipográfico
 ├── CV.pdf              # Documento curricular original de referencia y descarga
+├── .gitignore          # Exclusiones de archivos del sistema y temporales
 ├── README.md           # Documentación de uso, despliegue y auditoría de accesibilidad
 └── assets/
     └── fotocv.png      # Fotografía profesional de perfil
@@ -44,74 +46,62 @@ AppAntigravityVM/
 
 Al tratarse de un sitio web estático puro, puedes visualizarlo de varias maneras:
 
-### Opción 1: Abrir directamente en el navegador (Sin servidor)
+### Opción 1: Abrir directamente en el navegador
 Haz doble clic sobre el archivo `index.html` o arrástralo a tu navegador web favorito (Chrome, Edge, Firefox, Safari).
 
 ### Opción 2: Con la extensión Live Server (VS Code / Antigravity IDE)
-1. Instala la extensión **Live Server** si aún no la tienes.
+1. Instala la extensión **Live Server** (por *Ritwick Dey*).
 2. Haz clic derecho sobre `index.html` y selecciona **"Open with Live Server"**.
-3. Se abrirá en `http://127.0.0.1:5500/index.html` con recarga automática al guardar cambios.
+3. Se abrirá en `http://127.0.0.1:5500/index.html` con recarga automática en vivo al guardar cambios.
 
-### Opción 3: Con Python (si lo tienes instalado en tu sistema)
-Ejecuta en la terminal de la carpeta del proyecto:
-```bash
-python -m http.server 8000
-```
-Luego visita en tu navegador: [http://localhost:8000](http://localhost:8000)
-
-### Opción 4: Con Node.js / NPX (opcional)
-```bash
-npx -y serve .
-```
+### Opción 3: Con la extensión Live Preview (Microsoft)
+1. Instala la extensión **Live Preview** de Microsoft.
+2. Haz clic derecho en `index.html` y elige **"Live Preview: Show Preview"** para ver la página en tiempo real dentro del editor.
 
 ---
 
-## 🌐 Cómo desplegar en Netlify
+## 🌐 Cómo desplegar y actualizar automáticamente en Netlify
 
-El sitio está 100% optimizado para Netlify. Puedes desplegarlo en menos de 2 minutos mediante cualquiera de estos dos métodos:
+El sitio está 100% optimizado para Netlify mediante integración continua con GitHub:
 
-### Método A: Despliegue Rápido por Arrastrar y Soltar (Netlify Drop)
-1. Inicia sesión en tu cuenta de [Netlify](https://app.netlify.com/).
-2. Dirígete a la pestaña **Sites**.
-3. Arrastra la carpeta completa `AppAntigravityVM` (o una carpeta con `index.html`, `styles.css`, `script.js`, `CV.pdf` y la carpeta `assets/`) sobre la zona que dice **"Want to deploy a new site without connecting to Git? Drag and drop your site folder here"**.
-4. ¡Listo! En segundos tu sitio estará en línea con HTTPS gratuito bajo una URL como `https://victor-moran-portfolio.netlify.app`.
+### Paso 1: Conectar el repositorio en Netlify
+1. Inicia sesión en [Netlify](https://app.netlify.com/).
+2. Haz clic en **"Add new site"** y elige **"Import an existing project"**.
+3. Selecciona **GitHub** y autoriza tu repositorio **`epdodev/PagePortafolioWeb-AgentA`**.
+4. En la configuración:
+   - **Branch to deploy**: `main`
+   - **Build command**: *(dejar en blanco)*
+   - **Publish directory**: `.` *(o dejar en blanco)*
+5. Haz clic en **"Deploy Site"**.
 
-### Método B: Despliegue Continuo con Git (GitHub / GitLab)
-1. Sube este proyecto a un nuevo repositorio en GitHub:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: Perfil profesional digital accesible listo para Netlify"
-   git branch -M main
-   git remote add origin https://github.com/tu-usuario/tu-repositorio.git
-   git push -u origin main
-   ```
-2. En Netlify, haz clic en **"Add new site"** > **"Import an existing project"**.
-3. Selecciona **GitHub** y autoriza tu repositorio.
-4. En la configuración de build:
-   - **Build command**: (dejar vacío, no requiere compilación).
-   - **Publish directory**: `.` (o directorio raíz).
-5. Haz clic en **"Deploy Site"**. A partir de ese momento, cada `git push` actualizará tu web automáticamente.
+### Paso 2: Actualización automática permanente
+A partir de este momento, cada vez que hagas cambios y los subas con Git:
+```bash
+git add .
+git commit -m "Actualización de contenido"
+git push
+```
+**Netlify detectará el cambio y actualizará tu web pública en ~20 segundos automáticamente.**
 
 ### ✨ Funcionamiento del Formulario con Netlify Forms
-El formulario de contacto en `index.html` incluye los atributos `netlify` y `data-netlify="true"`, junto con el campo oculto `<input type="hidden" name="form-name" value="contact">`. Cuando la página esté desplegada en Netlify:
-- Netlify detectará el formulario automáticamente.
-- Cada mensaje enviado llegará directamente a tu panel de control de Netlify (**Forms**) y podrás configurar notificaciones por correo electrónico gratuitas en **Site Settings > Forms > Form notifications**.
+El formulario de contacto en `index.html` incluye los atributos `netlify` y `data-netlify="true"`, junto con el campo oculto `<input type="hidden" name="form-name" value="contact">`.
+- Netlify captura los envíos de forma nativa sin backend.
+- Los mensajes aparecen en tu panel de Netlify en la pestaña **Forms**.
 
 ---
 
 ## ✏️ Guía para completar los datos pendientes
 
-Por directriz de fidelidad con el CV, no se inventó información faltante. Puedes buscar fácilmente la cadena `[Completar:` en el código para personalizar los siguientes puntos:
+Puedes buscar la etiqueta `[Completar:` en el código para personalizar la información que no constaba en el CV:
 
 1. **Idiomas y lenguajes**:
-   - `index.html` (Línea ~485): Ajustar el nivel de inglés (ej. *Intermedio B1*, *Técnico*) y listar los lenguajes de programación específicos en estudio (ej. *C++, Python, JavaScript, Java, SQL*).
+   - `index.html`: Ajustar el nivel de inglés (ej. *Intermedio B1*) y lenguajes de programación en estudio universitario.
 2. **Proyectos**:
-   - `index.html` (Líneas ~510–585): Reemplazar los textos de las 3 tarjetas de proyectos modelo con tus proyectos académicos reales de la Universidad de Guayaquil, sus descripciones, tecnologías empleadas y enlaces a tus repositorios de GitHub.
+   - `index.html`: Reemplazar los datos de las 3 tarjetas de proyecto modelo con tus proyectos académicos reales de la Universidad de Guayaquil y sus enlaces de GitHub.
 3. **Disponibilidad de contacto**:
-   - `index.html` (Línea ~650): Especificar tu horario de disponibilidad (ej. *Lunes a Viernes de 8:00 a 18:00*).
+   - `index.html`: Especificar horario de atención preferido.
 4. **Redes Profesionales**:
-   - `index.html` (Líneas ~750–790): Reemplazar las URLs de LinkedIn y GitHub con tus nombres de usuario reales.
+   - `index.html`: Actualizar los enlaces de LinkedIn y GitHub con tus URLs de perfil reales.
 
 ---
 
@@ -142,5 +132,3 @@ Por directriz de fidelidad con el CV, no se inventó información faltante. Pued
 ## 📄 Licencia y Créditos
 - **Autor**: Victor Moran
 - **Desarrollo**: Front-End Vanilla con enfoque en Accesibilidad Web (WCAG 2.1 AA).
-#   P a g e P o r t a f o l i o W e b - A g e n t A  
- 
