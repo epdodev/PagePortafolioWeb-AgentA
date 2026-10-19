@@ -318,19 +318,22 @@
         submitBtn.textContent = "Enviando mensaje...";
       }
 
-      // Si se ejecuta en Netlify con data-netlify="true", podemos enviar vía POST
+      // Si se ejecuta en Netlify con data-netlify="true", enviamos vía POST
       const formData = new FormData(contactForm);
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData).toString(),
       })
-        .then(() => {
-          showFormSuccess();
+        .then((res) => {
+          if (res.ok) {
+            showFormSuccess();
+          } else {
+            showFormError("Hubo un problema al procesar el mensaje (" + res.status + "). Por favor contáctame directamente por correo a victormoran9@hotmail.com.");
+          }
         })
         .catch(() => {
-          // Fallback para prueba local sin Netlify
-          showFormSuccess();
+          showFormError("No se pudo conectar con el servidor de envío. Por favor intenta de nuevo o escríbeme directamente a victormoran9@hotmail.com.");
         })
         .finally(() => {
           if (submitBtn) {
@@ -348,6 +351,15 @@
       }
       contactForm.reset();
       announceToScreenReader("Mensaje enviado exitosamente. Responderé a la brevedad posible.");
+    }
+
+    function showFormError(errorMessage) {
+      if (formStatus) {
+        formStatus.className = "form-status-alert error";
+        formStatus.textContent = errorMessage;
+        formStatus.focus();
+      }
+      announceToScreenReader(errorMessage);
     }
   }
 
