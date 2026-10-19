@@ -19,6 +19,11 @@
   const contactForm = document.getElementById("contact-form");
   const formStatus = document.getElementById("form-status");
   const fontSizeBtns = document.querySelectorAll(".size-btn");
+  const summaryIntroScreen = document.getElementById("summary-intro-screen");
+  const btnEnterPortfolio = document.getElementById("btn-enter-portfolio");
+  const summaryThemeBtn = document.getElementById("summary-theme-toggle");
+  const summaryCloseModalBtn = document.getElementById("summary-close-modal-btn");
+  const navSummaryBtn = document.getElementById("nav-summary-btn");
 
   /**
    * Helper para anunciar mensajes a tecnologías de asistencia (lectores de pantalla)
@@ -73,6 +78,15 @@
       themeToggleBtn.setAttribute("title", labelText);
     }
 
+    if (summaryThemeBtn) {
+      summaryThemeBtn.setAttribute("aria-pressed", isDark ? "true" : "false");
+      const labelText = isDark
+        ? "Cambiar a tema claro (actualmente tema oscuro)"
+        : "Cambiar a tema oscuro (actualmente tema claro)";
+      summaryThemeBtn.setAttribute("aria-label", labelText);
+      summaryThemeBtn.setAttribute("title", labelText);
+    }
+
     if (shouldAnnounce) {
       announceToScreenReader(isDark ? "Tema oscuro activado" : "Tema claro activado");
     }
@@ -85,6 +99,14 @@
   // Escuchador de clic en el botón de tema
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener("click", () => {
+      const currentTheme = htmlElement.getAttribute("data-theme") || "light";
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
+      applyTheme(nextTheme, true);
+    });
+  }
+
+  if (summaryThemeBtn) {
+    summaryThemeBtn.addEventListener("click", () => {
       const currentTheme = htmlElement.getAttribute("data-theme") || "light";
       const nextTheme = currentTheme === "dark" ? "light" : "dark";
       applyTheme(nextTheme, true);
@@ -328,4 +350,134 @@
       announceToScreenReader("Mensaje enviado exitosamente. Responderé a la brevedad posible.");
     }
   }
+
+  // ==========================================================================
+  // 8. CONTROL DE PANTALLA DE RESUMEN EJECUTIVO (GATEWAY Y MODO MODAL)
+  // ==========================================================================
+  const bodyElement = document.body;
+  const siteHeader = document.querySelector(".site-header");
+
+  /**
+   * Cierra el modo modal del resumen y devuelve el foco al botón disparador
+   */
+  function closeSummaryModal() {
+    if (!summaryIntroScreen) return;
+    summaryIntroScreen.classList.add("fade-out");
+    setTimeout(() => {
+      summaryIntroScreen.classList.remove("is-modal", "fade-out");
+      summaryIntroScreen.style.display = "none";
+      summaryIntroScreen.setAttribute("aria-hidden", "true");
+      bodyElement.classList.remove("summary-modal-active");
+      if (summaryCloseModalBtn) {
+        summaryCloseModalBtn.style.display = "none";
+      }
+      if (navSummaryBtn) {
+        navSummaryBtn.focus();
+      }
+      announceToScreenReader("Resumen cerrado. Has vuelto al contenido principal.");
+    }, 280);
+  }
+
+  /**
+   * Abre la pantalla de resumen en modo modal desde la navegación
+   */
+  function openSummaryModal() {
+    if (!summaryIntroScreen) return;
+    summaryIntroScreen.style.display = "flex";
+    summaryIntroScreen.setAttribute("aria-hidden", "false");
+    summaryIntroScreen.classList.remove("fade-out");
+    summaryIntroScreen.classList.add("is-modal");
+    bodyElement.classList.add("summary-modal-active");
+
+    if (summaryCloseModalBtn) {
+      summaryCloseModalBtn.style.display = "inline-flex";
+    }
+
+    if (btnEnterPortfolio) {
+      btnEnterPortfolio.focus();
+    }
+    announceToScreenReader("Resumen ejecutivo abierto. Pulsa Escape o Cerrar para regresar.");
+  }
+
+  /**
+   * Transición de ingreso a la página completa
+   */
+  function enterFullPortfolio() {
+    if (!summaryIntroScreen) return;
+
+    // Si está en modo modal, simplemente cerrar modal
+    if (summaryIntroScreen.classList.contains("is-modal")) {
+      closeSummaryModal();
+      return;
+    }
+
+    // Modo Gateway inicial: animar salida de la entrada y desdifuminar el fondo
+    summaryIntroScreen.classList.add("fade-out");
+    bodyElement.classList.remove("intro-active");
+
+    if (mainContent) {
+      mainContent.classList.add("page-reveal-anim");
+    }
+    if (siteHeader) {
+      siteHeader.classList.add("page-reveal-anim");
+    }
+
+    setTimeout(() => {
+      summaryIntroScreen.style.display = "none";
+      summaryIntroScreen.setAttribute("aria-hidden", "true");
+
+      // Enfocar accesiblemente el contenido principal
+      if (mainContent) {
+        mainContent.setAttribute("tabindex", "-1");
+        mainContent.focus();
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      announceToScreenReader("Has ingresado al perfil completo de Victor Moran. Mostrando las 7 secciones disponibles.");
+    }, 420);
+  }
+
+  // Escuchador del botón principal "Ingresar para ver la página completa"
+  if (btnEnterPortfolio) {
+    btnEnterPortfolio.addEventListener("click", enterFullPortfolio);
+    // Si la entrada inicial está activa, enfocar el botón para accesibilidad por teclado
+    if (bodyElement.classList.contains("intro-active")) {
+      setTimeout(() => btnEnterPortfolio.focus(), 150);
+    }
+  }
+
+  // Escuchador del botón de cerrar resumen en modal
+  if (summaryCloseModalBtn) {
+    summaryCloseModalBtn.addEventListener("click", closeSummaryModal);
+  }
+
+  // Escuchador del botón "Resumen" en la barra de navegación
+  if (navSummaryBtn) {
+    navSummaryBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      // Si el menú móvil estaba abierto, cerrarlo
+      if (navMenu && navMenu.classList.contains("is-open") && mobileNavToggle) {
+        mobileNavToggle.setAttribute("aria-expanded", "false");
+        navMenu.classList.remove("is-open");
+      }
+      openSummaryModal();
+    });
+  }
+
+  // Cerrar modal al hacer clic en el backdrop oscuro exterior
+  if (summaryIntroScreen) {
+    summaryIntroScreen.addEventListener("click", (e) => {
+      if (summaryIntroScreen.classList.contains("is-modal") && e.target === summaryIntroScreen) {
+        closeSummaryModal();
+      }
+    });
+  }
+
+  // Tecla Escape para cerrar el modal de resumen si está abierto
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && summaryIntroScreen && summaryIntroScreen.classList.contains("is-modal")) {
+      closeSummaryModal();
+    }
+  });
+
 })();
