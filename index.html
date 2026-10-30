@@ -217,7 +217,7 @@
         <div class="summary-actions-footer">
           <button type="button" id="btn-enter-portfolio" class="btn-enter-portfolio"
             aria-label="Ingresar para ver las 9 secciones completas del portafolio">
-            <span class="btn-enter-text">Ingresar al Portafolio Completo (9 Secciones)</span>
+            <span class="btn-enter-text">Ingresar al Portafolio Completo</span>
             <span class="btn-enter-icon-wrap" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -310,26 +310,27 @@
   </aside>
 
   <!-- ======================================================================
-       BANNER HUD STREET FIGHTER II ARCADE EDITION
+       BANNER HUD STREET FIGHTER II ARCADE EDITION (COMPACTO Y RESPONSIVE)
        ====================================================================== -->
   <div class="arcade-hud-header" aria-label="HUD de estado Street Fighter II Arcade">
     <div class="arcade-hud-inner">
       <div class="arcade-player-badge">
         <span class="arcade-ko-pill">P1</span>
-        <span>VICTOR MORAN &bull; SOFTWARE ENGINEER 4.0</span>
+        <span class="arcade-player-name">VICTOR MORAN</span>
+        <span class="arcade-player-subtitle">&bull; SOFTWARE ENGINEER 4.0</span>
       </div>
       <div class="arcade-stage-badge">
         <span>STAGE: UNIVERSIDAD DE GUAYAQUIL (UG)</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 0.75rem;">
-        <span style="color: var(--sf-gold);">CREDITS: 4.0</span>
+      <div class="arcade-hud-credits">
+        <span class="arcade-hud-credits-text" style="color: var(--sf-gold);">CREDITS: 4.0</span>
         <span class="arcade-ko-pill" style="background: #10B981;">WCAG AAA</span>
       </div>
     </div>
   </div>
 
   <!-- ======================================================================
-       BARRA DE NAVEGACIÓN SUPERIOR FIJA (WCAG 2.4.5)
+       BARRA DE NAVEGACIÓN SUPERIOR FIJA RESPONSIVE (WCAG 2.4.5)
        CON CONMUTADOR DE TEMA OBLIGATORIO EN LA PARTE SUPERIOR DERECHA
        ====================================================================== -->
   <header class="site-header" role="banner">
@@ -339,13 +340,13 @@
         <span class="brand-badge">UG 4.0</span>
       </a>
 
-      <!-- Menú de navegación principal con las 9 secciones en orden -->
+      <!-- Menú de navegación principal con las 9 secciones en orden compacto -->
       <nav id="nav-menu" class="nav-menu" aria-label="Navegación principal de las 9 secciones">
         <ul class="nav-list" role="list">
           <li>
             <button type="button" id="nav-summary-btn" class="nav-summary-trigger"
               aria-label="Ver tarjeta de resumen profesional ejecutivo">
-              <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
@@ -355,15 +356,15 @@
               <span>Resumen</span>
             </button>
           </li>
-          <li><a href="#acerca-de-mi" class="nav-link">1. Acerca de mí</a></li>
-          <li><a href="#estudios" class="nav-link">2. Estudios</a></li>
-          <li><a href="#conocimientos" class="nav-link">3. Conocimientos</a></li>
-          <li><a href="#habilidades" class="nav-link">4. Habilidades</a></li>
-          <li><a href="#experiencia" class="nav-link">5. Experiencia</a></li>
-          <li><a href="#proyectos" class="nav-link">6. Proyectos</a></li>
-          <li><a href="#logros" class="nav-link">7. Logros</a></li>
-          <li><a href="#referencias" class="nav-link">8. Referencias</a></li>
-          <li><a href="#contactos" class="nav-link">9. Contactos</a></li>
+          <li><a href="#acerca-de-mi" class="nav-link">Acerca de mí</a></li>
+          <li><a href="#estudios" class="nav-link">Estudios</a></li>
+          <li><a href="#conocimientos" class="nav-link">Conocimientos</a></li>
+          <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+          <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+          <li><a href="#logros" class="nav-link">Logros</a></li>
+          <li><a href="#referencias" class="nav-link">Referencias</a></li>
+          <li><a href="#contactos" class="nav-link">Contactos</a></li>
         </ul>
       </nav>
 
@@ -373,7 +374,7 @@
         <button type="button" id="nav-theme-toggle" class="header-icon-btn"
           aria-label="Cambiar tema claro / oscuro" aria-pressed="false"
           title="Cambiar tema claro / oscuro">
-          <svg class="theme-icon-sun" aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none"
+          <svg class="theme-icon-sun" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -385,7 +386,7 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
           </svg>
-          <svg class="theme-icon-moon" aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none"
+          <svg class="theme-icon-moon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
@@ -395,17 +396,17 @@
         <button type="button" id="nav-sound-toggle" class="header-icon-btn is-active"
           aria-label="Efectos de sonido arcade: Activados (SFX ON)" aria-pressed="true"
           title="Efectos de sonido arcade: Activados (SFX ON)">
-          <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="2">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
           </svg>
         </button>
 
-        <!-- Botón de menú móvil -->
+        <!-- Botón de menú móvil responsive -->
         <button type="button" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-expanded="false"
-          aria-controls="nav-menu" aria-label="Abrir menú de navegación">
-          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          aria-controls="nav-menu" aria-label="Abrir menú de navegación de las 9 secciones">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -420,91 +421,103 @@
 
   <!-- ======================================================================
        HERRAMIENTAS FLOTANTES DE ACCESIBILIDAD UNIVERSAL (WCAG 2.1 AA/AAA)
+       CON PANEL DESPLEGABLE COMPACTO EN MÓVILES
        ====================================================================== -->
   <aside class="floating-a11y-toolbar" aria-label="Herramientas de accesibilidad universal">
-    <!-- Botón alternativo de tema -->
-    <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema claro / oscuro"
-      aria-pressed="false" title="Cambiar tema">
-      <svg class="theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-      <svg class="theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
+    <!-- Botón flotante accesible en móviles para abrir panel sin bloquear pantalla -->
+    <button type="button" id="a11y-fab-toggle" class="a11y-fab-toggle" aria-expanded="false"
+      aria-controls="floating-a11y-content" aria-label="Abrir panel de herramientas de accesibilidad">
+      <span aria-hidden="true">♿</span>
+      <span class="a11y-fab-text">Accesibilidad</span>
     </button>
 
-    <!-- Controles obligatorios para escalado de fuente: 100%, 115%, 130% -->
-    <div class="text-size-controls" role="group" aria-label="Escalado de tamaño de fuente">
-      <button type="button" class="size-btn active" data-scale="1" data-label="100%"
-        aria-label="Escala de fuente normal al 100%" aria-pressed="true" title="Tamaño 100%">
-        100%
+    <div id="floating-a11y-content" class="floating-a11y-content">
+      <!-- Botón alternativo de tema -->
+      <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema claro / oscuro"
+        aria-pressed="false" title="Cambiar tema">
+        <svg class="theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
       </button>
-      <button type="button" class="size-btn" data-scale="1.15" data-label="115%"
-        aria-label="Escalar fuente al 115%" aria-pressed="false" title="Tamaño 115%">
-        115%
-      </button>
-      <button type="button" class="size-btn" data-scale="1.30" data-label="130%"
-        aria-label="Escalar fuente al 130%" aria-pressed="false" title="Tamaño 130%">
-        130%
-      </button>
+
+      <!-- Controles obligatorios para escalado de fuente: 100%, 115%, 130% -->
+      <div class="text-size-controls" role="group" aria-label="Escalado de tamaño de fuente">
+        <button type="button" class="size-btn active" data-scale="1" data-label="100%"
+          aria-label="Escala de fuente normal al 100%" aria-pressed="true" title="Tamaño 100%">
+          100%
+        </button>
+        <button type="button" class="size-btn" data-scale="1.15" data-label="115%"
+          aria-label="Escalar fuente al 115%" aria-pressed="false" title="Tamaño 115%">
+          115%
+        </button>
+        <button type="button" class="size-btn" data-scale="1.30" data-label="130%"
+          aria-label="Escalar fuente al 130%" aria-pressed="false" title="Tamaño 130%">
+          130%
+        </button>
+      </div>
+
+      <div class="floating-icons-row" role="group" aria-label="Ajustes complementarios de visualización">
+        <!-- Botón Modo Alto Contraste (WCAG AAA) -->
+        <button type="button" id="high-contrast-toggle" class="header-icon-btn"
+          aria-label="Alternar Modo de Alto Contraste (WCAG AAA)" aria-pressed="false"
+          title="Alto Contraste AAA">
+          <span style="font-weight: 900; font-size: 0.78rem;">AAA</span>
+        </button>
+
+        <!-- Botón Síntesis de Voz (Text-to-Speech) -->
+        <button type="button" id="tts-toggle-btn" class="header-icon-btn"
+          aria-label="Activar o detener lectura por voz sintetizada"
+          title="Lectura por voz (TTS)">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="23"></line>
+            <line x1="8" y1="23" x2="16" y2="23"></line>
+          </svg>
+        </button>
+
+        <!-- Botón Pausar/Activar Lluvia Matrix -->
+        <button type="button" id="matrix-toggle-btn" class="header-icon-btn"
+          aria-label="Activar o pausar efecto de lluvia Matrix" aria-pressed="true"
+          title="Lluvia Matrix">
+          <span style="font-family: monospace; font-weight: 800; font-size: 0.8rem; color: #00FF66;">[M]</span>
+        </button>
+
+        <!-- Botón Reducción de Animaciones -->
+        <button type="button" id="reduced-motion-toggle" class="header-icon-btn"
+          aria-label="Alternar reducción de animaciones" aria-pressed="false"
+          title="Reducir animaciones">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+          </svg>
+        </button>
+
+        <!-- Botón Efectos de Sonido Flotante -->
+        <button type="button" id="floating-sound-toggle" class="header-icon-btn is-active"
+          aria-label="Activar o silenciar efectos sonoros arcade" aria-pressed="true"
+          title="SFX ON / MUTE">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+      </div>
     </div>
-
-    <!-- Botón Modo Alto Contraste (WCAG AAA) -->
-    <button type="button" id="high-contrast-toggle" class="header-icon-btn"
-      aria-label="Alternar Modo de Alto Contraste (WCAG AAA)" aria-pressed="false"
-      title="Alto Contraste AAA">
-      <span style="font-weight: 900; font-size: 0.82rem;">AAA</span>
-    </button>
-
-    <!-- Botón Síntesis de Voz (Text-to-Speech) -->
-    <button type="button" id="tts-toggle-btn" class="header-icon-btn"
-      aria-label="Activar o detener lectura por voz sintetizada (Text-to-Speech)"
-      title="Lectura por voz (Text-to-Speech)">
-      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2">
-        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-        <line x1="12" y1="19" x2="12" y2="23"></line>
-        <line x1="8" y1="23" x2="16" y2="23"></line>
-      </svg>
-    </button>
-
-    <!-- Botón Pausar/Activar Lluvia Matrix -->
-    <button type="button" id="matrix-toggle-btn" class="header-icon-btn"
-      aria-label="Activar o pausar efecto de lluvia digital Matrix" aria-pressed="true"
-      title="Lluvia Matrix ON/OFF">
-      <span style="font-family: monospace; font-weight: 800; font-size: 0.85rem; color: #00FF66;">[M]</span>
-    </button>
-
-    <!-- Botón Reducción de Animaciones -->
-    <button type="button" id="reduced-motion-toggle" class="header-icon-btn"
-      aria-label="Alternar modo de reducción de animaciones" aria-pressed="false"
-      title="Reducción de animaciones">
-      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2">
-        <rect x="6" y="4" width="4" height="16"></rect>
-        <rect x="14" y="4" width="4" height="16"></rect>
-      </svg>
-    </button>
-
-    <!-- Botón Efectos de Sonido Flotante -->
-    <button type="button" id="floating-sound-toggle" class="header-icon-btn is-active"
-      aria-label="Activar o silenciar efectos sonoros arcade (SFX)" aria-pressed="true"
-      title="SFX ON / MUTE">
-      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-        stroke-width="2">
-        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-      </svg>
-    </button>
   </aside>
 
   <!-- ======================================================================

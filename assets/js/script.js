@@ -756,7 +756,7 @@
     });
   }
 
-  // Cerrar modales con tecla Escape
+  // Cerrar modales y paneles con tecla Escape
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       if (imageViewerModal && !imageViewerModal.classList.contains("is-hidden")) {
@@ -764,6 +764,17 @@
       }
       if (summaryIntroScreen && summaryIntroScreen.classList.contains("is-modal")) {
         closeSummaryModal();
+      }
+      const floatingA11yContent = document.getElementById("floating-a11y-content");
+      const a11yFabToggle = document.getElementById("a11y-fab-toggle");
+      if (floatingA11yContent && floatingA11yContent.classList.contains("is-open")) {
+        floatingA11yContent.classList.remove("is-open");
+        if (a11yFabToggle) a11yFabToggle.setAttribute("aria-expanded", "false");
+      }
+      if (navMenu && navMenu.classList.contains("is-open") && mobileNavToggle) {
+        navMenu.classList.remove("is-open");
+        mobileNavToggle.setAttribute("aria-expanded", "false");
+        mobileNavToggle.focus();
       }
     }
   });
@@ -852,6 +863,31 @@
   // ==========================================================================
   // 13. NAVEGACIÓN MÓVIL Y OBSERVADOR DE SECCIÓN ACTIVA (INTERSECTION OBSERVER)
   // ==========================================================================
+  const a11yFabToggle = document.getElementById("a11y-fab-toggle");
+  const floatingA11yContent = document.getElementById("floating-a11y-content");
+
+  if (a11yFabToggle && floatingA11yContent) {
+    a11yFabToggle.addEventListener("click", () => {
+      const isExpanded = a11yFabToggle.getAttribute("aria-expanded") === "true";
+      a11yFabToggle.setAttribute("aria-expanded", !isExpanded);
+      floatingA11yContent.classList.toggle("is-open", !isExpanded);
+      playArcadeClick();
+      announceToScreenReader(!isExpanded ? "Panel de accesibilidad abierto" : "Panel de accesibilidad cerrado");
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (
+        floatingA11yContent.classList.contains("is-open") &&
+        !floatingA11yContent.contains(e.target) &&
+        !a11yFabToggle.contains(e.target)
+      ) {
+        floatingA11yContent.classList.remove("is-open");
+        a11yFabToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
   if (mobileNavToggle && navMenu) {
     mobileNavToggle.addEventListener("click", () => {
       const isExpanded = mobileNavToggle.getAttribute("aria-expanded") === "true";
@@ -859,6 +895,18 @@
       navMenu.classList.toggle("is-open", !isExpanded);
       announceToScreenReader(isExpanded ? "Menú cerrado" : "Menú abierto");
       playArcadeClick();
+    });
+
+    // Cerrar menú móvil al hacer clic fuera del header
+    document.addEventListener("click", (e) => {
+      if (
+        navMenu.classList.contains("is-open") &&
+        !navMenu.contains(e.target) &&
+        !mobileNavToggle.contains(e.target)
+      ) {
+        mobileNavToggle.setAttribute("aria-expanded", "false");
+        navMenu.classList.remove("is-open");
+      }
     });
   }
 
