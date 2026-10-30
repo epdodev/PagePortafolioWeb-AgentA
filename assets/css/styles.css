@@ -1,11 +1,11 @@
 /* ==========================================================================
    HOJA DE ESTILOS: styles.css
    Perfil Profesional Digital Accesible - Victor Moran
-   Estándar: WCAG 2.1 Nivel AA / AAA en contrastes clave
+   EstÃ¡ndar: WCAG 2.1 Nivel AA / AAA en contrastes clave
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. VARIABLES DE DISEÑO Y TEMAS (Custom Properties)
+   1. VARIABLES DE DISEÃO Y TEMAS (Custom Properties)
    -------------------------------------------------------------------------- */
 :root {
   /* Escala de texto accesible */
@@ -14,7 +14,7 @@
   --line-height-base: 1.6;
   --line-height-heading: 1.25;
 
-  /* Familia tipográfica legible y neutral */
+  /* Familia tipogrÃ¡fica legible y neutral */
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
@@ -31,7 +31,7 @@
   --text-muted: #475569;        /* Texto de apoyo (Slate 600 - ratio 5.7:1 con fondo) */
   --text-inverse: #FFFFFF;
 
-  --accent-color: #0369A1;      /* Azul Cerúleo accesible (Sky 700 - ratio 5.9:1 con blanco) */
+  --accent-color: #0369A1;      /* Azul CerÃºleo accesible (Sky 700 - ratio 5.9:1 con blanco) */
   --accent-hover: #075985;      /* Sky 800 */
   --accent-light: #E0F2FE;      /* Sky 100 */
   --accent-text: #0C4A6E;       /* Sky 900 */
@@ -176,7 +176,7 @@ body {
   border: 0;
 }
 
-/* Anunciador en vivo para cambios dinámicos (WCAG 4.1.3) */
+/* Anunciador en vivo para cambios dinÃ¡micos (WCAG 4.1.3) */
 #a11y-announcer {
   position: absolute;
   width: 1px;
@@ -189,7 +189,7 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   4. TIPOGRAFÍA Y JERARQUÍA
+   4. TIPOGRAFÃA Y JERARQUÃA
    -------------------------------------------------------------------------- */
 h1, h2, h3, h4 {
   color: var(--text-primary);
@@ -246,7 +246,7 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   5. CONTENEDOR Y ESTRUCTURA DE PÁGINA
+   5. CONTENEDOR Y ESTRUCTURA DE PÃGINA
    -------------------------------------------------------------------------- */
 .container {
   width: 100%;
@@ -257,7 +257,7 @@ a:hover {
   padding-right: 1.25rem;
 }
 
-/* Encabezado fijo y barra de navegación superior */
+/* Encabezado fijo y barra de navegaciÃ³n superior */
 .site-header {
   position: sticky;
   top: 0;
@@ -311,7 +311,7 @@ a:hover {
   letter-spacing: 0.05em;
 }
 
-/* Navegación */
+/* NavegaciÃ³n */
 .nav-menu {
   display: flex;
   align-items: center;
@@ -350,7 +350,7 @@ a:hover {
   background-color: var(--accent-light);
 }
 
-/* Botón menú móvil (hamburguesa) */
+/* BotÃ³n menÃº mÃ³vil (hamburguesa) */
 .mobile-nav-toggle {
   display: none;
   background: transparent;
@@ -363,7 +363,7 @@ a:hover {
   gap: 0.5rem;
   font-size: 0.95rem;
   font-weight: 600;
-  min-height: 44px; /* Tamaño mínimo táctil WCAG */
+  min-height: 44px; /* TamaÃ±o mÃ­nimo tÃ¡ctil WCAG */
 }
 
 /* --------------------------------------------------------------------------
@@ -426,7 +426,7 @@ a:hover {
   display: none;
 }
 
-/* Controles de tamaño de texto */
+/* Controles de tamaÃ±o de texto */
 .text-size-controls {
   background-color: var(--bg-surface);
   border: 2px solid var(--border-color);
@@ -508,7 +508,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   8. SECCIÓN 1: ACERCA DE MÍ (Hero & About)
+   8. SECCIÃN 1: ACERCA DE MÃ (Hero & About)
    -------------------------------------------------------------------------- */
 .hero-wrapper {
   display: grid;
@@ -610,7 +610,7 @@ main {
   gap: 1rem;
 }
 
-/* Botones estándar de acción */
+/* Botones estÃ¡ndar de acciÃ³n */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -650,7 +650,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   9. SECCIÓN 2: ESTUDIOS (Educación y Cursos)
+   9. SECCIÃN 2: ESTUDIOS (EducaciÃ³n y Cursos)
    -------------------------------------------------------------------------- */
 .education-group {
   margin-bottom: 3rem;
@@ -756,7 +756,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   10. SECCIÓN 3: EXPERIENCIA
+   10. SECCIÃN 3: EXPERIENCIA
    -------------------------------------------------------------------------- */
 .experience-list {
   display: flex;
@@ -783,7 +783,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   11. SECCIÓN 4: HABILIDADES Y LENGUAJES (Nivel Visual Accesible)
+   11. SECCIÃN 4: HABILIDADES Y LENGUAJES (Nivel Visual Accesible)
    -------------------------------------------------------------------------- */
 .skills-grid {
   display: grid;
@@ -854,7 +854,7 @@ main {
   transition: width 0.5s ease-out;
 }
 
-/* Sección de lenguajes / idiomas */
+/* SecciÃ³n de lenguajes / idiomas */
 .languages-box {
   margin-top: 2rem;
   background-color: var(--bg-surface);
@@ -891,7 +891,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   12. SECCIÓN 5: PROYECTOS (Tarjetas con Metadatos)
+   12. SECCIÃN 5: PROYECTOS (Tarjetas con Metadatos)
    -------------------------------------------------------------------------- */
 .projects-grid {
   display: grid;
@@ -1015,7 +1015,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   13. SECCIÓN 6: CONTACTOS (Datos y Formulario Accesible)
+   13. SECCIÃN 6: CONTACTOS (Datos y Formulario Accesible)
    -------------------------------------------------------------------------- */
 .contact-wrapper {
   display: grid;
@@ -1181,7 +1181,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   14. SECCIÓN 7: REDES PROFESIONALES
+   14. SECCIÃN 7: REDES PROFESIONALES
    -------------------------------------------------------------------------- */
 .social-links-grid {
   display: grid;
@@ -1250,7 +1250,7 @@ main {
 }
 
 /* --------------------------------------------------------------------------
-   15. FOOTER (Pie de página semántico)
+   15. FOOTER (Pie de pÃ¡gina semÃ¡ntico)
    -------------------------------------------------------------------------- */
 .site-footer {
   background-color: var(--bg-surface);
@@ -1329,7 +1329,7 @@ main {
    17. PANTALLA DE RESUMEN EJECUTIVO PREVIO AL INGRESO (GATEWAY SUMMARY)
    ========================================================================== */
 
-/* Cuando la introducción está activa se difumina el resto de la página */
+/* Cuando la introducciÃ³n estÃ¡ activa se difumina el resto de la pÃ¡gina */
 body.intro-active {
   overflow: hidden;
 }
@@ -1405,7 +1405,7 @@ body.intro-active .floating-a11y-toolbar {
   margin: auto;
 }
 
-/* Tarjeta principal de la entrada con estética Glassmorphism */
+/* Tarjeta principal de la entrada con estÃ©tica Glassmorphism */
 .summary-card {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(24px);
@@ -1681,7 +1681,7 @@ body.intro-active .floating-a11y-toolbar {
   border-radius: var(--radius-full);
 }
 
-/* Acciones Principales y Botón Ingresar */
+/* Acciones Principales y BotÃ³n Ingresar */
 .summary-actions-footer {
   display: flex;
   align-items: center;
@@ -1761,7 +1761,7 @@ body.intro-active .floating-a11y-toolbar {
   font-weight: 700;
 }
 
-/* Botón disparador en la barra de navegación */
+/* BotÃ³n disparador en la barra de navegaciÃ³n */
 .nav-summary-trigger {
   display: inline-flex;
   align-items: center;
@@ -1797,7 +1797,7 @@ body.intro-active .floating-a11y-toolbar {
   outline-offset: 2px;
 }
 
-/* Modo modal interactivo desde la página principal */
+/* Modo modal interactivo desde la pÃ¡gina principal */
 .summary-intro-screen.is-modal {
   background-color: rgba(15, 23, 42, 0.72);
   backdrop-filter: blur(8px);
@@ -1814,7 +1814,7 @@ body.intro-active .floating-a11y-toolbar {
   display: inline-flex !important;
 }
 
-/* Transición de desvanecimiento al ingresar */
+/* TransiciÃ³n de desvanecimiento al ingresar */
 .summary-intro-screen.fade-out {
   opacity: 0;
   transform: scale(1.03);
@@ -1822,7 +1822,7 @@ body.intro-active .floating-a11y-toolbar {
   transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Animación de entrada al portafolio completo */
+/* AnimaciÃ³n de entrada al portafolio completo */
 .page-reveal-anim {
   animation: pageFadeReveal 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -1838,7 +1838,7 @@ body.intro-active .floating-a11y-toolbar {
   }
 }
 
-/* Responsive para pantallas medianas y móviles */
+/* Responsive para pantallas medianas y mÃ³viles */
 @media (max-width: 768px) {
   .summary-card {
     padding: 1.5rem 1.15rem;
@@ -1866,6 +1866,983 @@ body.intro-active .floating-a11y-toolbar {
   .btn-enter-portfolio,
   .btn-summary-download {
     width: 100%;
+  }
+}
+
+
+/* ==========================================================================
+   18. STREET FIGHTER II ARCADE EDITION, NETFLIX, MATRIX & ACCESIBILIDAD AAA
+   ========================================================================== */
+
+/* Variables cromáticas Street Fighter II y UG */
+:root {
+  --sf-gold: #FFD700;
+  --sf-gold-dark: #B8860B;
+  --sf-fire-red: #FF2A2A;
+  --sf-fire-orange: #FF7700;
+  --sf-gradient-fire: linear-gradient(135deg, #FF1A1A 0%, #FF6B08 45%, #FFD700 100%);
+  --sf-hud-bg: #0C0F1A;
+  --sf-hud-border: #D4AF37;
+  
+  --ug-blue: #002F6C;
+  --ug-blue-light: #0056B3;
+  --ug-gold: #F5A623;
+  --ug-red: #C02424;
+  
+  --matrix-neon: #00FF66;
+  --matrix-bg: #030806;
+}
+
+/* Canvas de lluvia digital Matrix */
+.matrix-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.12;
+  transition: opacity 0.4s ease;
+}
+
+[data-theme="dark"] .matrix-canvas {
+  opacity: 0.22;
+}
+
+body.matrix-disabled .matrix-canvas {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   SPLASH SCREEN EXPLOSIVO NETFLIX (3 SEGUNDOS & SONORIZADO)
+   -------------------------------------------------------------------------- */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background-color: #050508;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s ease;
+}
+
+.splash-screen.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.06);
+}
+
+.splash-ambient-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(229, 9, 20, 0.32) 0%, rgba(255, 107, 8, 0.15) 35%, transparent 70%);
+  animation: splashPulse 2.8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes splashPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+.splash-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1.5rem;
+  max-width: 900px;
+}
+
+.splash-badge-arcade {
+  display: inline-block;
+  font-family: var(--font-family-mono);
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sf-gold);
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--sf-gold);
+  padding: 0.4rem 1.1rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  animation: splashGlitch 1.5s infinite;
+}
+
+@keyframes splashGlitch {
+  0%, 100% { text-shadow: 0 0 8px rgba(255, 215, 0, 0.8); }
+  50% { text-shadow: -2px 0 #FF2A2A, 2px 0 #00E676; }
+}
+
+.splash-title-wrap {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.splash-title {
+  font-size: clamp(2.4rem, 8vw, 5.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.05;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFD700 45%, #FF3A1A 85%, #990000 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 35px rgba(229, 9, 20, 0.85)) drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+  animation: netflixExplode 2.8s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+}
+
+@keyframes netflixExplode {
+  0% {
+    transform: scale(0.65);
+    opacity: 0;
+    letter-spacing: -0.05em;
+    filter: blur(12px) drop-shadow(0 0 50px rgba(229, 9, 20, 1));
+  }
+  20% {
+    opacity: 1;
+    filter: blur(0px) drop-shadow(0 0 35px rgba(229, 9, 20, 0.9));
+  }
+  85% {
+    transform: scale(1.05);
+    opacity: 1;
+    letter-spacing: 0.1em;
+  }
+  100% {
+    transform: scale(1.12);
+    opacity: 1;
+    letter-spacing: 0.12em;
+  }
+}
+
+.splash-subtitle {
+  font-size: clamp(0.95rem, 2.5vw, 1.45rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #F8FAFC;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  margin-bottom: 2rem;
+  animation: splashSubFade 1.2s ease 0.6s forwards;
+  opacity: 0;
+}
+
+@keyframes splashSubFade {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.splash-skip-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #F8FAFC;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-full);
+  padding: 0.6rem 1.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.splash-skip-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.splash-skip-btn:focus-visible {
+  outline: 3px solid var(--sf-gold);
+  outline-offset: 3px;
+}
+
+.splash-timer-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: var(--sf-gradient-fire);
+  width: 100%;
+  animation: splashProgress 3s linear forwards;
+}
+
+@keyframes splashProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* --------------------------------------------------------------------------
+   SUBTÍTULOS SONOROS VISUALES (ACCESIBILIDAD AUDITIVA WCAG)
+   -------------------------------------------------------------------------- */
+.sound-subtitles {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 99990;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.sound-toast {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(12, 15, 26, 0.94);
+  color: #FFD700;
+  border: 1.5px solid var(--sf-hud-border);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1.15rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 215, 0, 0.25);
+  backdrop-filter: blur(10px);
+  animation: toastSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toastSlideUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.92); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* --------------------------------------------------------------------------
+   ESTÉTICA STREET FIGHTER II: HUD, HEALTH BARS & ARCADE CABINET
+   -------------------------------------------------------------------------- */
+
+/* Banner superior HUD Street Fighter II */
+.arcade-hud-header {
+  background: linear-gradient(180deg, #1A1D2B 0%, #0C0F1A 100%);
+  border-bottom: 2px solid var(--sf-hud-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 215, 0, 0.4);
+  padding: 0.5rem 1rem;
+  font-family: var(--font-family-mono);
+  font-size: 0.85rem;
+  color: #E2E8F0;
+}
+
+.arcade-hud-inner {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.arcade-player-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  color: #FF5E00;
+}
+
+.arcade-ko-pill {
+  background: var(--sf-fire-red);
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(255, 42, 42, 0.7);
+  letter-spacing: 0.1em;
+}
+
+.arcade-stage-badge {
+  color: var(--sf-gold);
+  font-weight: 700;
+}
+
+/* Barras de Vida / HUD de Street Fighter II */
+.sf-hud-bar-container {
+  margin-bottom: 1.35rem;
+}
+
+.sf-hud-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.45rem;
+}
+
+.sf-hud-name {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.sf-hud-val {
+  font-family: var(--font-family-mono);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--sf-gold-dark);
+}
+
+[data-theme="dark"] .sf-hud-val {
+  color: var(--sf-gold);
+}
+
+.sf-lifebar-frame {
+  background-color: #1A1D2B;
+  border: 2px solid #D4AF37;
+  border-radius: 4px;
+  padding: 3px;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.2);
+  height: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sf-lifebar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #FF1A1A 0%, #FF8C00 45%, #FFD700 80%, #00E676 100%);
+  box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 215, 0, 0.6);
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.sf-lifebar-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px 2px 0 0;
+}
+
+/* Tarjeta Arcade Cabinet */
+.arcade-cabinet-card {
+  border: 2px solid var(--border-color);
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  position: relative;
+  transition: all var(--transition-speed) ease;
+}
+
+.arcade-cabinet-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--sf-gradient-fire);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.arcade-cabinet-card:hover {
+  border-color: var(--sf-gold);
+  box-shadow: 0 12px 30px -5px rgba(255, 107, 8, 0.2), 0 0 0 1px var(--sf-gold);
+  transform: translateY(-3px);
+}
+
+/* Insignia y Estética Institucional Universidad de Guayaquil (UG) */
+.ug-institution-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, rgba(0, 47, 108, 0.08) 0%, rgba(245, 166, 35, 0.12) 100%);
+  border: 1.5px solid var(--ug-blue-light);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+[data-theme="dark"] .ug-institution-badge {
+  background: linear-gradient(135deg, rgba(0, 47, 108, 0.35) 0%, rgba(245, 166, 35, 0.15) 100%);
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+.ug-badge-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--ug-blue);
+  color: var(--sf-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 8px rgba(0, 47, 108, 0.4);
+  flex-shrink: 0;
+}
+
+.ug-badge-text strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.ug-badge-text span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Métricas HUD del Profesional 4.0 */
+.hud-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1.85rem 0;
+}
+
+.hud-metric-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-speed) ease;
+}
+
+.hud-metric-card:hover {
+  border-color: var(--sf-gold);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.hud-metric-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--sf-gradient-fire);
+}
+
+.hud-metric-value {
+  display: block;
+  font-size: 1.85rem;
+  font-weight: 900;
+  line-height: 1.1;
+  background: var(--sf-gradient-fire);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.35rem;
+}
+
+.hud-metric-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   FILTRO DINÁMICO DE PROYECTOS (ESTILO PINTEREST / INSTAGRAM + ARCADE)
+   -------------------------------------------------------------------------- */
+.project-filter-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 0.55rem 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: var(--sf-gradient-fire);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(255, 107, 8, 0.35);
+}
+
+.filter-btn:focus-visible {
+  outline: 3px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+/* Tarjetas de Proyectos con Grid Estilo Pinterest */
+.projects-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+.gallery-project-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.gallery-project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(255, 107, 8, 0.15);
+  border-color: var(--sf-gold);
+}
+
+.gallery-project-card.is-hidden {
+  display: none !important;
+}
+
+.gallery-card-banner {
+  height: 160px;
+  background: linear-gradient(135deg, #0C1222 0%, #1A2640 50%, #002F6C 100%);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255, 107, 8, 0.25), transparent 60%);
+  pointer-events: none;
+}
+
+.gallery-banner-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-category-pill {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  color: var(--sf-gold);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.gallery-stats-pill {
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.gallery-banner-title {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.gallery-card-body {
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+}
+
+.gallery-card-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.gallery-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   VISOR MODAL INTERACTIVO PARA FOTO.JPG Y CV.JPG CON ZOOM Y DESCARGA
+   -------------------------------------------------------------------------- */
+.image-viewer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(8, 11, 20, 0.88);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  animation: modalFadeIn 0.3s ease forwards;
+}
+
+.image-viewer-modal.is-hidden {
+  display: none !important;
+}
+
+.image-viewer-container {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--sf-gold);
+  overflow: hidden;
+}
+
+.image-viewer-header {
+  padding: 1rem 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-surface-alt);
+}
+
+.image-viewer-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.image-viewer-body {
+  padding: 1.5rem;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.15);
+  min-height: 380px;
+}
+
+.image-viewer-img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.25s ease;
+}
+
+.image-viewer-footer {
+  padding: 0.95rem 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-surface-alt);
+  flex-wrap: wrap;
+}
+
+.image-zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.image-zoom-btn {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.image-zoom-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* --------------------------------------------------------------------------
+   TARJETAS DE CONTACTO CON COPIADO RÁPIDO CON UN CLIC
+   -------------------------------------------------------------------------- */
+.contact-fast-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.15rem;
+  margin-bottom: 2rem;
+}
+
+.contact-fast-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.contact-fast-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-fast-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-fast-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-light);
+  color: var(--accent-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .contact-fast-icon {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent-color);
+}
+
+.contact-fast-texts {
+  min-width: 0;
+}
+
+.contact-fast-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.15rem;
+}
+
+.contact-fast-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  display: block;
+}
+
+.contact-fast-value:hover {
+  color: var(--accent-color);
+}
+
+.contact-copy-btn {
+  background: var(--bg-surface-alt);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-speed) ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.contact-copy-btn:hover {
+  background: var(--accent-color);
+  color: #FFFFFF;
+  border-color: var(--accent-color);
+  transform: scale(1.04);
+}
+
+.contact-copy-btn.copied {
+  background: #10B981 !important;
+  color: #FFFFFF !important;
+  border-color: #10B981 !important;
+}
+
+.contact-copy-btn:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   ACCESIBILIDAD UNIVERSAL: ALTO CONTRASTE AAA & REDUCCIÓN DE ANIMACIONES
+   -------------------------------------------------------------------------- */
+[data-contrast="high"] {
+  --bg-primary: #000000 !important;
+  --bg-surface: #000000 !important;
+  --bg-surface-alt: #111111 !important;
+  --bg-surface-elevated: #111111 !important;
+  --border-color: #FFFF00 !important;
+  --border-subtle: #FFFF00 !important;
+  --text-primary: #FFFF00 !important;
+  --text-secondary: #FFFFFF !important;
+  --text-muted: #FFFFFF !important;
+  --accent-color: #00FFFF !important;
+  --accent-hover: #00FFFF !important;
+  --accent-light: #002222 !important;
+  --accent-text: #00FFFF !important;
+  --focus-ring-color: #00FFFF !important;
+  --focus-ring-outline: #FFFF00 !important;
+}
+
+[data-contrast="high"] * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+[data-contrast="high"] .matrix-canvas {
+  display: none !important;
+}
+
+[data-reduced-motion="true"] *,
+[data-reduced-motion="true"] *::before,
+[data-reduced-motion="true"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+[data-reduced-motion="true"] .matrix-canvas {
+  display: none !important;
+}
+
+/* Botones y acciones de la barra de navegación en parte superior derecha */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-left: auto;
+}
+
+.header-icon-btn {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.header-icon-btn:hover {
+  background-color: var(--bg-surface);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+.header-icon-btn:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+.header-icon-btn.is-active {
+  background-color: var(--accent-color);
+  color: #FFFFFF;
+  border-color: var(--accent-color);
+}
+
+/* Barra de síntesis de voz flotante */
+.tts-player-widget {
+  display: none;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--accent-color);
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.85rem;
+  box-shadow: var(--shadow-md);
+  margin-left: 0.5rem;
+}
+
+.tts-player-widget.is-speaking {
+  display: inline-flex;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 900px) {
+  .hud-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-fast-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hud-metrics-grid {
+    grid-template-columns: 1fr;
   }
 }
 

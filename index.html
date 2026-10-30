@@ -5,16 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Perfil profesional digital de Victor Moran, estudiante de Ingeniería en Software con experiencia en atención al cliente, gestión operativa y desarrollo de sistemas.">
+    content="Portafolio Profesional Digital Interactivo 4.0 de Victor Moran, estudiante de Ingeniería en Software de la Universidad de Guayaquil (UG). Cumplimiento estricto WCAG 2.1 AA/AAA, sonorización nativa y dirección de arte Street Fighter II Arcade Edition.">
   <meta name="author" content="Victor Moran">
-  <title>Victor Moran | Perfil Profesional - Estudiante de Software</title>
+  <title>Victor Moran | Portafolio Profesional 4.0 - Universidad de Guayaquil</title>
 
   <!-- Enlace a estilos CSS externos sin frameworks -->
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <!-- Favicon accesible -->
   <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕹️</text></svg>">
 </head>
 
 <body class="intro-active">
@@ -22,8 +22,44 @@
   <!-- Enlace accesible de salto al contenido principal (WCAG 2.4.1) -->
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
+  <!-- Canvas de lluvia digital Matrix de fondo interactivo -->
+  <canvas id="matrix-canvas" class="matrix-canvas" aria-hidden="true"></canvas>
+
   <!-- Anunciador de estado dinámico para lectores de pantalla (WCAG 4.1.3) -->
   <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Sistema de Subtítulos Sonoros Visuales para usuarios con capacidad auditiva reducida (aria-live="polite") -->
+  <div id="sound-subtitles" class="sound-subtitles" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- ======================================================================
+       SPLASH SCREEN ANIMADO Y SONORIZADO TIPO NETFLIX (3 SEGUNDOS)
+       ====================================================================== -->
+  <aside id="splash-screen" class="splash-screen" aria-label="Pantalla de introducción animada">
+    <div class="splash-ambient-radial" aria-hidden="true"></div>
+
+    <div class="splash-content">
+      <div class="splash-badge-arcade" aria-hidden="true">
+        ★ ARCADE EDITION 4.0 ★
+      </div>
+
+      <div class="splash-title-wrap">
+        <h1 class="splash-title">VICTOR MORAN</h1>
+      </div>
+
+      <p class="splash-subtitle">
+        INGENIERÍA EN SOFTWARE &bull; UNIVERSIDAD DE GUAYAQUIL (UG)
+      </p>
+
+      <button type="button" id="skip-splash-btn" class="splash-skip-btn"
+        aria-label="Saltar introducción animada y acceder al portafolio">
+        <span>Saltar introducción</span>
+        <kbd>[Esc]</kbd>
+      </button>
+    </div>
+
+    <!-- Barra de progreso de 3 segundos -->
+    <div class="splash-timer-bar" aria-hidden="true"></div>
+  </aside>
 
   <!-- ======================================================================
        PANTALLA DE RESUMEN EJECUTIVO PREVIO AL INGRESO (GATEWAY SUMMARY)
@@ -39,14 +75,13 @@
         <div class="summary-top-bar">
           <div class="summary-status-pill" aria-label="Estado profesional">
             <span class="status-pulse-dot" aria-hidden="true"></span>
-            <span>Disponible para nuevas oportunidades</span>
+            <span>Profesional 4.0 &bull; Disponible para nuevos desafíos</span>
           </div>
 
           <div class="summary-top-controls">
             <!-- Botón de cambio de tema dentro del resumen -->
             <button type="button" id="summary-theme-toggle" class="summary-theme-btn"
               aria-label="Cambiar tema claro / oscuro" title="Cambiar tema claro / oscuro">
-              <!-- Icono de Sol (visible en modo oscuro) -->
               <svg class="theme-icon-sun" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="5"></circle>
@@ -59,16 +94,15 @@
                 <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
                 <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
               </svg>
-              <!-- Icono de Luna (visible en modo claro) -->
               <svg class="theme-icon-moon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
               </svg>
             </button>
 
-            <!-- Botón para cerrar (visible cuando se abre como modal desde la página completa) -->
+            <!-- Botón para cerrar resumen cuando se abre como modal -->
             <button type="button" id="summary-close-modal-btn" class="summary-close-btn"
-              aria-label="Cerrar resumen y volver al perfil completo" title="Cerrar resumen" style="display: none;">
+              aria-label="Cerrar resumen y volver al portafolio completo" title="Cerrar resumen" style="display: none;">
               <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -81,13 +115,13 @@
         <!-- Encabezado con Avatar, Nombre y Rol -->
         <div class="summary-hero">
           <div class="summary-avatar-frame">
-            <img src="assets/images/fotocv.png" alt="Fotografía de Victor Moran, estudiante de Ingeniería en Software"
+            <img src="foto.jpg" alt="Fotografía de Victor Moran, estudiante de Ingeniería en Software de la UG"
               class="summary-avatar-img" width="96" height="96">
           </div>
           <div class="summary-hero-info">
-            <span class="summary-hero-tag">Resumen Profesional Ejecutivo</span>
+            <span class="summary-hero-tag">Resumen Profesional 4.0</span>
             <h2 id="summary-card-name" class="summary-card-name">Victor Moran</h2>
-            <p class="summary-card-subtitle">Estudiante de Ingeniería en Software &amp; Gestor de Operaciones</p>
+            <p class="summary-card-subtitle">Ingeniero de Software en Formación &bull; Universidad de Guayaquil (UG)</p>
             <div class="summary-location-pill">
               <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
@@ -102,18 +136,15 @@
         <!-- Extracto profesional conciso -->
         <div class="summary-bio-card">
           <p id="summary-bio-text" class="summary-bio-paragraph">
-            Profesional con experiencia en <strong>atención al cliente, gestión de caja y control de
-              inventarios</strong> en
-            entornos comerciales de alto flujo (Pical S.A., Tía S.A., Carl's Jr.). Estudiante activo de
-            <strong>Ingeniería en Software</strong> en la Universidad de Guayaquil, desarrollador de la aplicación web
-            <strong>Luuv</strong> y enfocado en aplicar tecnología y pensamiento crítico a la resolución de problemas.
+            Estudiante activo de <strong>Ingeniería en Software</strong> en la <strong>Universidad de Guayaquil (UG)</strong>,
+            desarrollador de la aplicación web <strong>Luuv</strong> y enfocado en la Industria 4.0. Combino dominio en
+            arquitecturas de software modernas (Java, Spring Boot, WebSockets, C#, Python, SQL) con sólidas habilidades blandas,
+            experiencia en gestión de puntos de venta e inventarios, y un compromiso ético con la <strong>Accesibilidad Web Universal (WCAG 2.1 AA/AAA)</strong>.
           </p>
         </div>
 
         <!-- Grid de 4 pilares destacados del perfil -->
         <div class="summary-pillars-grid" role="list">
-
-          <!-- Pilar 1: Educación -->
           <div class="summary-pillar" role="listitem">
             <div class="summary-pillar-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -122,13 +153,12 @@
               </svg>
             </div>
             <div class="summary-pillar-body">
-              <span class="summary-pillar-title">Formación Académica</span>
+              <span class="summary-pillar-title">Formación Superior</span>
               <strong class="summary-pillar-highlight">Ingeniería en Software</strong>
-              <span class="summary-pillar-meta">Universidad de Guayaquil (En curso)</span>
+              <span class="summary-pillar-meta">Universidad de Guayaquil (UG)</span>
             </div>
           </div>
 
-          <!-- Pilar 2: Experiencia Operativa -->
           <div class="summary-pillar" role="listitem">
             <div class="summary-pillar-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -143,7 +173,6 @@
             </div>
           </div>
 
-          <!-- Pilar 3: Proyecto Luuv -->
           <div class="summary-pillar" role="listitem">
             <div class="summary-pillar-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -153,13 +182,12 @@
               </svg>
             </div>
             <div class="summary-pillar-body">
-              <span class="summary-pillar-title">Proyecto Destacado</span>
+              <span class="summary-pillar-title">Proyecto en Producción</span>
               <strong class="summary-pillar-highlight">Luuv Web App</strong>
-              <span class="summary-pillar-meta">En producción &bull; App de citas interactiva</span>
+              <span class="summary-pillar-meta">Spring Boot &bull; WebSockets &bull; Cloud</span>
             </div>
           </div>
 
-          <!-- Pilar 4: Habilidades & Idiomas -->
           <div class="summary-pillar" role="listitem">
             <div class="summary-pillar-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -168,28 +196,28 @@
               </svg>
             </div>
             <div class="summary-pillar-body">
-              <span class="summary-pillar-title">Lenguajes y Habilidades</span>
-              <strong class="summary-pillar-highlight">C#, Python, Java &bull; Inglés B2</strong>
-              <span class="summary-pillar-meta">Datafast, DeUna, Trabajo bajo presión</span>
+              <span class="summary-pillar-title">Bilingüismo &amp; Algoritmos</span>
+              <strong class="summary-pillar-highlight">Inglés B2 &bull; C#, Java, Python</strong>
+              <span class="summary-pillar-meta">Pensamiento Crítico &bull; Trabajo bajo presión</span>
             </div>
           </div>
-
         </div>
 
         <!-- Badges / Tags de especialidades -->
         <div class="summary-tags-row" aria-label="Especialidades destacadas">
           <span class="summary-badge-chip">💻 Software &amp; Algoritmos</span>
+          <span class="summary-badge-chip">☁️ Render Cloud &amp; Netlify</span>
           <span class="summary-badge-chip">💳 POS, Datafast &amp; DeUna</span>
-          <span class="summary-badge-chip">📦 Control de Inventario</span>
-          <span class="summary-badge-chip">🤝 Atención al Cliente</span>
+          <span class="summary-badge-chip">📦 Control de Inventario 4.0</span>
+          <span class="summary-badge-chip">♿ WCAG 2.1 AA/AAA Inclusivo</span>
           <span class="summary-badge-chip">🗣️ Español Nativo / Inglés B2</span>
         </div>
 
-        <!-- Acciones Principales: Botón "Ingresar para ver la página completa" -->
+        <!-- Acciones Principales -->
         <div class="summary-actions-footer">
           <button type="button" id="btn-enter-portfolio" class="btn-enter-portfolio"
-            aria-label="Ingresar para ver la página completa del perfil profesional">
-            <span class="btn-enter-text">Ingresar para ver la página completa</span>
+            aria-label="Ingresar para ver las 9 secciones completas del portafolio">
+            <span class="btn-enter-text">Ingresar al Portafolio Completo (9 Secciones)</span>
             <span class="btn-enter-icon-wrap" aria-hidden="true">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -199,22 +227,32 @@
             </span>
           </button>
 
-          <a href="assets/docs/CV.pdf" class="btn btn-secondary btn-summary-download" download="Victor_Moran_CV.pdf"
-            aria-label="Descargar currículum en formato PDF (97 KB)">
+          <!-- Botón modal para ver CV gráfico en alta resolución -->
+          <button type="button" class="btn btn-secondary btn-summary-download" data-open-modal-img="cv"
+            aria-label="Ver documento gráfico de la hoja de vida cv.jpg en visor modal">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <span>Ver cv.jpg</span>
+          </button>
+
+          <a href="cv.jpg" class="btn btn-secondary btn-summary-download" download="Victor_Moran_CV.jpg"
+            aria-label="Descargar hoja de vida cv.jpg directamente (523 KB)">
             <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
               <polyline points="7 10 12 15 17 10"></polyline>
               <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
-            <span>Descargar CV</span>
+            <span>Descargar cv.jpg</span>
           </a>
         </div>
 
-        <!-- Sugerencia accesible de teclado -->
         <div class="summary-keyboard-hint">
-          <small>Presiona <kbd>Enter</kbd> o haz clic en <strong>Ingresar</strong> para acceder al portafolio completo
-            con sus 7 secciones.</small>
+          <small>Presiona <kbd>Enter</kbd> o haz clic en <strong>Ingresar</strong> para explorar las 9 secciones completas.</small>
         </div>
 
       </div>
@@ -222,29 +260,87 @@
   </aside>
 
   <!-- ======================================================================
+       VISOR MODAL INTERACTIVO PARA RECURSOS LOCALES (FOTO.JPG Y CV.JPG)
+       ====================================================================== -->
+  <aside id="image-viewer-modal" class="image-viewer-modal is-hidden" role="dialog" aria-modal="true"
+    aria-labelledby="image-viewer-title" aria-hidden="true">
+    <div class="image-viewer-container">
+      <div class="image-viewer-header">
+        <h3 id="image-viewer-title" class="image-viewer-title">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          <span>Visor de Recurso Gráfico</span>
+        </h3>
+        <button type="button" id="image-viewer-close-btn" class="summary-close-btn"
+          aria-label="Cerrar visor interactivo de imagen">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="image-viewer-body">
+        <img id="image-viewer-img" class="image-viewer-img" src="cv.jpg" alt="Recurso del profesional">
+      </div>
+
+      <div class="image-viewer-footer">
+        <div class="image-zoom-controls" role="group" aria-label="Controles de zoom de la imagen">
+          <button type="button" id="zoom-in-btn" class="image-zoom-btn" aria-label="Aumentar zoom de la imagen">Zoom +</button>
+          <button type="button" id="zoom-out-btn" class="image-zoom-btn" aria-label="Disminuir zoom de la imagen">Zoom -</button>
+          <button type="button" id="zoom-reset-btn" class="image-zoom-btn" aria-label="Restablecer tamaño normal">100%</button>
+        </div>
+
+        <a id="image-viewer-download-btn" href="cv.jpg" download="Victor_Moran_Recurso.jpg" class="btn btn-primary">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Descargar imagen en alta resolución</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ======================================================================
+       BANNER HUD STREET FIGHTER II ARCADE EDITION
+       ====================================================================== -->
+  <div class="arcade-hud-header" aria-label="HUD de estado Street Fighter II Arcade">
+    <div class="arcade-hud-inner">
+      <div class="arcade-player-badge">
+        <span class="arcade-ko-pill">P1</span>
+        <span>VICTOR MORAN &bull; SOFTWARE ENGINEER 4.0</span>
+      </div>
+      <div class="arcade-stage-badge">
+        <span>STAGE: UNIVERSIDAD DE GUAYAQUIL (UG)</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <span style="color: var(--sf-gold);">CREDITS: 4.0</span>
+        <span class="arcade-ko-pill" style="background: #10B981;">WCAG AAA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
        BARRA DE NAVEGACIÓN SUPERIOR FIJA (WCAG 2.4.5)
+       CON CONMUTADOR DE TEMA OBLIGATORIO EN LA PARTE SUPERIOR DERECHA
        ====================================================================== -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
       <a href="#acerca-de-mi" class="brand-link" aria-label="Victor Moran - Ir al inicio del perfil">
         <span>Victor Moran</span>
-        <span class="brand-badge">Software</span>
+        <span class="brand-badge">UG 4.0</span>
       </a>
 
-      <!-- Botón de apertura/cierre de menú para dispositivos móviles -->
-      <button type="button" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-expanded="false"
-        aria-controls="nav-menu" aria-label="Abrir menú de navegación">
-        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-        <span>Menú</span>
-      </button>
-
-      <!-- Menú de navegación principal con las 7 secciones en orden -->
-      <nav id="nav-menu" class="nav-menu" aria-label="Navegación principal del sitio">
+      <!-- Menú de navegación principal con las 9 secciones en orden -->
+      <nav id="nav-menu" class="nav-menu" aria-label="Navegación principal de las 9 secciones">
         <ul class="nav-list" role="list">
           <li>
             <button type="button" id="nav-summary-btn" class="nav-summary-trigger"
@@ -259,26 +355,76 @@
               <span>Resumen</span>
             </button>
           </li>
-          <li><a href="#acerca-de-mi" class="nav-link">Acerca de mí</a></li>
-          <li><a href="#estudios" class="nav-link">Estudios</a></li>
-          <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
-          <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
-          <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-          <li><a href="#contactos" class="nav-link">Contactos</a></li>
-          <li><a href="#redes" class="nav-link">Redes</a></li>
+          <li><a href="#acerca-de-mi" class="nav-link">1. Acerca de mí</a></li>
+          <li><a href="#estudios" class="nav-link">2. Estudios</a></li>
+          <li><a href="#conocimientos" class="nav-link">3. Conocimientos</a></li>
+          <li><a href="#habilidades" class="nav-link">4. Habilidades</a></li>
+          <li><a href="#experiencia" class="nav-link">5. Experiencia</a></li>
+          <li><a href="#proyectos" class="nav-link">6. Proyectos</a></li>
+          <li><a href="#logros" class="nav-link">7. Logros</a></li>
+          <li><a href="#referencias" class="nav-link">8. Referencias</a></li>
+          <li><a href="#contactos" class="nav-link">9. Contactos</a></li>
         </ul>
       </nav>
+
+      <!-- ACCIONES DE CABECERA EN PARTE SUPERIOR DERECHA (TEMA CLARO/OSCURO Y SONIDO) -->
+      <div class="header-actions">
+        <!-- BOTÓN OBLIGATORIO: Conmutador de Tema Claro / Oscuro en la parte superior derecha -->
+        <button type="button" id="nav-theme-toggle" class="header-icon-btn"
+          aria-label="Cambiar tema claro / oscuro" aria-pressed="false"
+          title="Cambiar tema claro / oscuro">
+          <svg class="theme-icon-sun" aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Botón de sonido Arcade SFX ON / MUTE -->
+        <button type="button" id="nav-sound-toggle" class="header-icon-btn is-active"
+          aria-label="Efectos de sonido arcade: Activados (SFX ON)" aria-pressed="true"
+          title="Efectos de sonido arcade: Activados (SFX ON)">
+          <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+
+        <!-- Botón de menú móvil -->
+        <button type="button" id="mobile-nav-toggle" class="mobile-nav-toggle" aria-expanded="false"
+          aria-controls="nav-menu" aria-label="Abrir menú de navegación">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <span>Menú</span>
+        </button>
+      </div>
+
     </div>
   </header>
 
   <!-- ======================================================================
-       CONTROLES FLOTANTES LATERALES IZQUIERDOS (Tema claro/oscuro y tamaño fuente)
+       HERRAMIENTAS FLOTANTES DE ACCESIBILIDAD UNIVERSAL (WCAG 2.1 AA/AAA)
        ====================================================================== -->
-  <aside class="floating-a11y-toolbar" aria-label="Herramientas de accesibilidad y visualización">
-    <!-- Botón para alternar tema claro / oscuro -->
-    <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar a tema oscuro"
-      aria-pressed="false" title="Cambiar tema claro / oscuro">
-      <!-- Icono de Sol (visible en modo oscuro) -->
+  <aside class="floating-a11y-toolbar" aria-label="Herramientas de accesibilidad universal">
+    <!-- Botón alternativo de tema -->
+    <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema claro / oscuro"
+      aria-pressed="false" title="Cambiar tema">
       <svg class="theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="5"></circle>
         <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -290,80 +436,150 @@
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
         <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
       </svg>
-      <!-- Icono de Luna (visible en modo claro) -->
       <svg class="theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
       </svg>
     </button>
 
-    <!-- Control accesible para aumentar / disminuir tamaño de texto -->
-    <div class="text-size-controls" role="group" aria-label="Ajustar tamaño de fuente">
-      <button type="button" class="size-btn" data-scale="0.9" data-label="reducido"
-        aria-label="Reducir tamaño de texto a 90%" title="Tamaño de texto reducido">
-        A-
+    <!-- Controles obligatorios para escalado de fuente: 100%, 115%, 130% -->
+    <div class="text-size-controls" role="group" aria-label="Escalado de tamaño de fuente">
+      <button type="button" class="size-btn active" data-scale="1" data-label="100%"
+        aria-label="Escala de fuente normal al 100%" aria-pressed="true" title="Tamaño 100%">
+        100%
       </button>
-      <button type="button" class="size-btn active" data-scale="1" data-label="normal"
-        aria-label="Restablecer tamaño de texto normal (100%)" aria-pressed="true" title="Tamaño de texto normal">
-        A
+      <button type="button" class="size-btn" data-scale="1.15" data-label="115%"
+        aria-label="Escalar fuente al 115%" aria-pressed="false" title="Tamaño 115%">
+        115%
       </button>
-      <button type="button" class="size-btn" data-scale="1.2" data-label="ampliado"
-        aria-label="Aumentar tamaño de texto a 120%" title="Tamaño de texto ampliado">
-        A+
+      <button type="button" class="size-btn" data-scale="1.30" data-label="130%"
+        aria-label="Escalar fuente al 130%" aria-pressed="false" title="Tamaño 130%">
+        130%
       </button>
     </div>
+
+    <!-- Botón Modo Alto Contraste (WCAG AAA) -->
+    <button type="button" id="high-contrast-toggle" class="header-icon-btn"
+      aria-label="Alternar Modo de Alto Contraste (WCAG AAA)" aria-pressed="false"
+      title="Alto Contraste AAA">
+      <span style="font-weight: 900; font-size: 0.82rem;">AAA</span>
+    </button>
+
+    <!-- Botón Síntesis de Voz (Text-to-Speech) -->
+    <button type="button" id="tts-toggle-btn" class="header-icon-btn"
+      aria-label="Activar o detener lectura por voz sintetizada (Text-to-Speech)"
+      title="Lectura por voz (Text-to-Speech)">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+        <line x1="12" y1="19" x2="12" y2="23"></line>
+        <line x1="8" y1="23" x2="16" y2="23"></line>
+      </svg>
+    </button>
+
+    <!-- Botón Pausar/Activar Lluvia Matrix -->
+    <button type="button" id="matrix-toggle-btn" class="header-icon-btn"
+      aria-label="Activar o pausar efecto de lluvia digital Matrix" aria-pressed="true"
+      title="Lluvia Matrix ON/OFF">
+      <span style="font-family: monospace; font-weight: 800; font-size: 0.85rem; color: #00FF66;">[M]</span>
+    </button>
+
+    <!-- Botón Reducción de Animaciones -->
+    <button type="button" id="reduced-motion-toggle" class="header-icon-btn"
+      aria-label="Alternar modo de reducción de animaciones" aria-pressed="false"
+      title="Reducción de animaciones">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2">
+        <rect x="6" y="4" width="4" height="16"></rect>
+        <rect x="14" y="4" width="4" height="16"></rect>
+      </svg>
+    </button>
+
+    <!-- Botón Efectos de Sonido Flotante -->
+    <button type="button" id="floating-sound-toggle" class="header-icon-btn is-active"
+      aria-label="Activar o silenciar efectos sonoros arcade (SFX)" aria-pressed="true"
+      title="SFX ON / MUTE">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+    </button>
   </aside>
 
   <!-- ======================================================================
-       CONTENIDO PRINCIPAL
+       CONTENIDO PRINCIPAL: 9 SECCIONES OBLIGATORIAS
        ====================================================================== -->
   <main id="main-content" tabindex="-1">
 
     <!-- --------------------------------------------------------------------
-         1. SECCIÓN: ACERCA DE MÍ
+         1. SECCIÓN: ACERCA DE MÍ (Perfil 4.0, UG, Métricas HUD, foto.jpg)
          -------------------------------------------------------------------- -->
     <section id="acerca-de-mi" class="section hero-section" aria-labelledby="heading-acerca-de-mi">
       <div class="container">
         <div class="hero-wrapper">
-          <!-- Fotografía del postulante con texto alternativo significativo -->
+
+          <!-- Fotografía oficial vinculada localmente (foto.jpg) con visor modal interactivo -->
           <div class="hero-avatar-container">
-            <div class="hero-avatar-frame">
-              <img src="assets/images/fotocv.png"
-                alt="Fotografía formal de Victor Moran, estudiante de Ingeniería en Software" class="hero-avatar-img"
-                width="240" height="240">
+            <div class="hero-avatar-frame arcade-cabinet-card" style="cursor: pointer;" data-open-modal-img="foto"
+              role="button" tabindex="0" aria-label="Abrir fotografía oficial foto.jpg en visor modal interactivo">
+              <img src="foto.jpg"
+                alt="Fotografía oficial de Victor Moran, estudiante de Ingeniería en Software de la Universidad de Guayaquil"
+                class="hero-avatar-img" width="240" height="240">
+            </div>
+            <div style="margin-top: 0.85rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+              <button type="button" class="btn btn-secondary" style="font-size: 0.82rem; padding: 0.4rem 0.8rem;"
+                data-open-modal-img="foto" aria-label="Ver fotografía oficial foto.jpg en grande">
+                🔍 Ver foto.jpg
+              </button>
+              <a href="foto.jpg" download="Victor_Moran_Foto.jpg" class="btn btn-secondary"
+                style="font-size: 0.82rem; padding: 0.4rem 0.8rem;" aria-label="Descargar fotografía foto.jpg directamente">
+                ⬇️ Descargar foto
+              </a>
             </div>
           </div>
 
-          <!-- Información personal y extracto del CV -->
+          <!-- Información personal y perfil de Ingeniero de Software 4.0 -->
           <div class="hero-content">
-            <span class="hero-tagline">Perfil Profesional</span>
+            <!-- Insignia Institucional de la Universidad de Guayaquil (UG) -->
+            <div class="ug-institution-badge">
+              <div class="ug-badge-logo" aria-hidden="true">UG</div>
+              <div class="ug-badge-text">
+                <strong>Universidad de Guayaquil &bull; Facultad de Ciencias Matemáticas y Físicas</strong>
+                <span>Carrera de Ingeniería en Software &bull; Enfoque Industria 4.0</span>
+              </div>
+            </div>
+
+            <span class="hero-tagline">Perfil de Ingeniero de Software 4.0</span>
             <h1 id="heading-acerca-de-mi" class="hero-name">Victor Moran</h1>
-            <p class="hero-role">Estudiante de Ingeniería en Software &amp; Gestor de Operaciones</p>
+            <p class="hero-role">Estudiante de Ingeniería en Software &bull; Desarrollador Full Stack &bull; Gestor de Operaciones</p>
 
             <p class="hero-bio">
-              Profesional con experiencia en atención al cliente, servicio y manejo de caja en entornos de ritmo
-              rápido, incluyendo experiencia en punto de venta, drive-thru y preparación de alimentos. Organizado,
-              con capacidad de trabajo en equipo bajo presión, orientado al servicio y con responsabilidad para
-              desempeñar
-              múltiples funciones.
+              Estudiante de <strong>Ingeniería en Software</strong> en la <strong>Universidad de Guayaquil</strong> con sólida
+              trayectoria en desarrollo de aplicaciones web (creador de la plataforma <strong>Luuv</strong>), gestión operativa de caja y control
+              de inventarios de alto volumen en empresas comerciales (Pical S.A., TÍA S.A., Carl's Jr.).
+              Como <strong>Profesional 4.0</strong>, integro pensamiento crítico, metodologías ágiles, resolución de problemas bajo presión y
+              un estricto compromiso ético con la <strong>Accesibilidad Web Universal (WCAG 2.1 Niveles AA/AAA)</strong> para personas con
+              capacidades visuales y auditivas reducidas.
             </p>
 
-            <!-- Datos rápidos de ubicación y contacto extraídos del CV -->
-            <div class="hero-quick-meta" role="list" aria-label="Datos rápidos de localización">
-              <div class="meta-item" role="listitem">
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-                <span><strong>Ubicación:</strong> Babahoyo y Portete, Ecuador</span>
+            <!-- Métricas y Estadísticas Clave tipo HUD Arcade 4.0 -->
+            <div class="hud-metrics-grid" role="list" aria-label="Estadísticas clave del profesional">
+              <div class="hud-metric-card" role="listitem">
+                <span class="hud-metric-value">+500 hrs</span>
+                <span class="hud-metric-label">Desarrollo Web &amp; Algoritmos Full Stack</span>
               </div>
-              <div class="meta-item" role="listitem">
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-                </svg>
-                <span><strong>Universidad:</strong> Universidad de Guayaquil</span>
+              <div class="hud-metric-card" role="listitem">
+                <span class="hud-metric-value">100%</span>
+                <span class="hud-metric-label">Compromiso Normativa Accesible WCAG AA/AAA</span>
+              </div>
+              <div class="hud-metric-card" role="listitem">
+                <span class="hud-metric-value">4+ Años</span>
+                <span class="hud-metric-label">Experiencia en Atención, Caja POS e Inventario</span>
+              </div>
+              <div class="hud-metric-card" role="listitem">
+                <span class="hud-metric-value">99.8%</span>
+                <span class="hud-metric-label">Precisión en Cuadre de Caja y Control de Stock</span>
               </div>
             </div>
 
@@ -377,34 +593,47 @@
                 </svg>
                 <span>Contactar ahora</span>
               </a>
-              <a href="assets/docs/CV.pdf" class="btn btn-secondary" download="Victor_Moran_CV.pdf"
-                aria-label="Descargar currículum en formato PDF (97 KB)">
+
+              <!-- Botón visor de cv.jpg en modal -->
+              <button type="button" class="btn btn-secondary" data-open-modal-img="cv"
+                aria-label="Ver hoja de vida gráfica cv.jpg en visor modal">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span>Ver cv.jpg</span>
+              </button>
+
+              <a href="cv.jpg" class="btn btn-secondary" download="Victor_Moran_CV.jpg"
+                aria-label="Descargar hoja de vida cv.jpg directamente (523 KB)">
                 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                   stroke-width="2">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                <span>Descargar CV (PDF)</span>
+                <span>Descargar cv.jpg</span>
               </a>
             </div>
+
           </div>
         </div>
       </div>
     </section>
 
     <!-- --------------------------------------------------------------------
-         2. SECCIÓN: ESTUDIOS
+         2. SECCIÓN: ESTUDIOS (Universidad de Guayaquil, Certificaciones, Bilingüismo)
          -------------------------------------------------------------------- -->
     <section id="estudios" class="section" aria-labelledby="heading-estudios">
       <div class="container">
-        <h2 id="heading-estudios">Estudios</h2>
+        <h2 id="heading-estudios">2. Estudios &bull; Formación Académica &amp; Bilingüismo</h2>
         <p class="section-intro">
-          Formación académica universitaria y programas de capacitación continua orientados a la ingeniería de software
-          y habilidades analíticas.
+          Formación universitaria superior en la prestigiosa <strong>Universidad de Guayaquil</strong>, certificaciones analíticas y capacidad bilingüe técnica.
         </p>
 
-        <!-- Subgrupo: Educación Formal -->
+        <!-- Subgrupo 1: Educación Universitaria Superior -->
         <div class="education-group">
           <h3 class="subsection-heading">
             <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -412,12 +641,11 @@
               <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
               <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
             </svg>
-            <span>Educación Universitaria y Superior</span>
+            <span>Educación Universitaria Superior</span>
           </h3>
 
           <div class="timeline" role="list">
-            <!-- Grado 1: Ingeniería en Software -->
-            <article class="timeline-card" role="listitem">
+            <article class="timeline-card arcade-cabinet-card" role="listitem">
               <div class="card-header-flex">
                 <h4 class="card-title">Ingeniería en Software</h4>
                 <div>
@@ -425,17 +653,19 @@
                   <span class="badge-status">En curso</span>
                 </div>
               </div>
-              <p class="card-institution">Universidad de Guayaquil</p>
+              <p class="card-institution" style="color: var(--ug-blue-light); font-weight: 700;">
+                Universidad de Guayaquil (UG) &bull; Facultad de Ciencias Matemáticas y Físicas
+              </p>
               <ul class="bullet-list">
-                <li>Enfoque en fundamentos de programación, desarrollo de algoritmos y bases de datos.</li>
-                <li>Estudio avanzado sobre metodologías de desarrollo de software, arquitectura de sistemas y seguridad
-                  informática.</li>
+                <li>Formación en algoritmos avanzados, programación orientada a objetos (POO), estructuras de datos y bases de datos relacionales.</li>
+                <li>Estudio intensivo de ingeniería de software, arquitectura web distribuida, metodologías ágiles (Scrum) y accesibilidad web WCAG.</li>
+                <li>Desarrollo de proyectos prácticos con Java, Spring Boot, WebSockets y servicios en la nube.</li>
               </ul>
             </article>
           </div>
         </div>
 
-        <!-- Subgrupo: Cursos y Certificaciones -->
+        <!-- Subgrupo 2: Certificaciones y Formación Continua -->
         <div class="education-group">
           <h3 class="subsection-heading">
             <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -443,56 +673,410 @@
               <circle cx="12" cy="8" r="7"></circle>
               <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
             </svg>
-            <span>Cursos y Capacitación Continua</span>
+            <span>Certificaciones &amp; Formación Continua</span>
           </h3>
 
           <div class="timeline" role="list">
-            <!-- Curso 1: Pensamiento crítico y reflexivo -->
             <article class="timeline-card" role="listitem">
               <div class="card-header-flex">
                 <h4 class="card-title">Pensamiento Crítico y Reflexivo</h4>
                 <span class="badge-date">2025</span>
               </div>
-              <p class="card-institution">Universidad Estatal de Milagro</p>
+              <p class="card-institution">Universidad Estatal de Milagro (UNEMI)</p>
               <ul class="bullet-list">
-                <li>Desarrollo de habilidades analíticas para la resolución de problemas complejos, toma de decisiones
-                  estratégicas y optimización de procesos operativos en entornos bajo presión.</li>
+                <li>Habilidades cognitivas avanzadas para la resolución analítica de problemas complejos y toma de decisiones estratégicas.</li>
               </ul>
             </article>
 
-            <!-- Curso 2: Reanimación Cardio-Pulmonar básica -->
             <article class="timeline-card" role="listitem">
               <div class="card-header-flex">
-                <h4 class="card-title">Reanimación Cardio-Pulmonar Básica</h4>
+                <h4 class="card-title">Reanimación Cardio-Pulmonar Básica y Primeros Auxilios</h4>
                 <span class="badge-date">2026</span>
               </div>
               <p class="card-institution">Cruz Roja de Tungurahua</p>
               <ul class="bullet-list">
-                <li>Capacitación teórica y práctica en técnicas de primeros auxilios y soporte vital básico (RVP),
-                  garantizando una respuesta rápida y efectiva ante emergencias médicas en el entorno laboral.</li>
+                <li>Capacitación en soporte vital básico y respuesta inmediata ante emergencias de salud ocupacional.</li>
               </ul>
             </article>
           </div>
         </div>
+
+        <!-- Subgrupo 3: Bilingüismo e Idiomas -->
+        <div class="languages-box arcade-cabinet-card" style="margin-top: 1.5rem; padding: 1.5rem;">
+          <h3 class="subsection-heading">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span>Bilingüismo &amp; Comunicación Internacional</span>
+          </h3>
+
+          <div class="languages-grid">
+            <div class="language-card">
+              <h4 class="language-title">Español</h4>
+              <p>Nivel: <strong>Nativo</strong></p>
+              <small style="color: var(--text-muted);">Dominio fluido y comunicación asertiva verbal y escrita.</small>
+            </div>
+            <div class="language-card">
+              <h4 class="language-title">Inglés</h4>
+              <p>Nivel: <strong>Intermedio - Avanzado (B2)</strong></p>
+              <small style="color: var(--text-muted);">Capacidad técnica bilingüe para lectura de documentación oficial, estándares RFC y colaboración remota.</small>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- --------------------------------------------------------------------
-         3. SECCIÓN: EXPERIENCIA
+         3. SECCIÓN: CONOCIMIENTOS (Lenguajes, Frameworks, Bases de Datos, Cloud)
+         CON BARRAS HUD TIPO STREET FIGHTER II
+         -------------------------------------------------------------------- -->
+    <section id="conocimientos" class="section" aria-labelledby="heading-conocimientos">
+      <div class="container">
+        <h2 id="heading-conocimientos">3. Conocimientos Técnicos &bull; Barras HUD Arcade</h2>
+        <p class="section-intro">
+          Dominio competitivo en lenguajes de programación, frameworks Frontend/Backend, bases de datos y plataformas Cloud, visualizados mediante el sistema HUD de combate Street Fighter II.
+        </p>
+
+        <div class="skills-grid">
+          <!-- Columna 1: Lenguajes de Programación -->
+          <div class="skills-category arcade-cabinet-card" style="padding: 1.5rem;">
+            <h3 class="subsection-heading">
+              <span class="arcade-ko-pill">P1</span>
+              <span>Lenguajes de Programación</span>
+            </h3>
+
+            <!-- HUD Bar C# -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">C# (.NET / Algoritmos)</span>
+                <span class="sf-hud-val">85% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                aria-label="C# nivel 85%">
+                <div class="sf-lifebar-fill" style="width: 85%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar Python -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Python (Estructuras &amp; Scripting)</span>
+                <span class="sf-hud-val">80% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Python nivel 80%">
+                <div class="sf-lifebar-fill" style="width: 80%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar Java -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Java (Spring Boot / POO)</span>
+                <span class="sf-hud-val">85% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Java nivel 85%">
+                <div class="sf-lifebar-fill" style="width: 85%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar JavaScript -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">JavaScript Moderno (ES6+)</span>
+                <span class="sf-hud-val">85% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                aria-label="JavaScript nivel 85%">
+                <div class="sf-lifebar-fill" style="width: 85%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar HTML5 / CSS3 -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">HTML5 Semántico &amp; CSS3 Accesible</span>
+                <span class="sf-hud-val">95% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                aria-label="HTML5 y CSS3 nivel 95%">
+                <div class="sf-lifebar-fill" style="width: 95%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2: Frameworks, Bases de Datos & Cloud -->
+          <div class="skills-category arcade-cabinet-card" style="padding: 1.5rem;">
+            <h3 class="subsection-heading">
+              <span class="arcade-ko-pill">P2</span>
+              <span>Frameworks, Bases de Datos &amp; Cloud</span>
+            </h3>
+
+            <!-- HUD Bar Spring Boot -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Spring Boot &amp; WebSockets</span>
+                <span class="sf-hud-val">85% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Spring Boot y WebSockets nivel 85%">
+                <div class="sf-lifebar-fill" style="width: 85%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar SQL -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Bases de Datos SQL (Postgres / MySQL)</span>
+                <span class="sf-hud-val">90% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                aria-label="SQL nivel 90%">
+                <div class="sf-lifebar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar Cloud Render & Netlify -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Cloud Hosting (Render &amp; Netlify)</span>
+                <span class="sf-hud-val">90% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Cloud Hosting nivel 90%">
+                <div class="sf-lifebar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar Git & GitHub -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Control de Versiones (Git &amp; GitHub)</span>
+                <span class="sf-hud-val">90% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Git y GitHub nivel 90%">
+                <div class="sf-lifebar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar Web APIs & Audio API -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">APIs Nativas (Web Audio &amp; Speech)</span>
+                <span class="sf-hud-val">90% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Web Audio y Speech nivel 90%">
+                <div class="sf-lifebar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         4. SECCIÓN: HABILIDADES (Blandas de Profesional 4.0 & Operativas)
+         -------------------------------------------------------------------- -->
+    <section id="habilidades" class="section" aria-labelledby="heading-habilidades">
+      <div class="container">
+        <h2 id="heading-habilidades">4. Habilidades &bull; Competencias del Profesional 4.0</h2>
+        <p class="section-intro">
+          En la Industria 4.0, el valor diferenciador radica en la integración armónica entre habilidades técnicas y humanas.
+        </p>
+
+        <div class="skills-grid">
+          <!-- Columna 1: Habilidades Blandas 4.0 -->
+          <div class="skills-category">
+            <h3 class="subsection-heading">
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              <span>Habilidades Blandas 4.0</span>
+            </h3>
+
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Trabajo en Equipo bajo Presión y Ritmo Rápido</span>
+                  <span class="skill-level-text">Sobresaliente (95%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Trabajo en equipo bajo presión: 95%">
+                  <div class="skill-bar-fill" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Pensamiento Crítico y Resolución Estratégica</span>
+                  <span class="skill-level-text">Sobresaliente (95%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Pensamiento crítico: 95%">
+                  <div class="skill-bar-fill" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Comunicación Asertiva, Empatía y Escucha Activa</span>
+                  <span class="skill-level-text">Alto (90%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Comunicación asertiva: 90%">
+                  <div class="skill-bar-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Adaptabilidad, Resiliencia y Flexibilidad Operativa</span>
+                  <span class="skill-level-text">Alto (90%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Adaptabilidad: 90%">
+                  <div class="skill-bar-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Ética y Compromiso con la Accesibilidad Web Universal</span>
+                  <span class="skill-level-text">Pleno (100%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Compromiso accesibilidad: 100%">
+                  <div class="skill-bar-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna 2: Competencias Operativas & Comerciales -->
+          <div class="skills-category">
+            <h3 class="subsection-heading">
+              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <span>Competencias Operativas &amp; Puntos de Venta</span>
+            </h3>
+
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Manejo de POS, Datafast, Medianet y DeUna</span>
+                  <span class="skill-level-text">Avanzado (95%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Manejo de POS: 95%">
+                  <div class="skill-bar-fill" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Gestión de Caja, Apertura, Cierre y Cuadre Diario</span>
+                  <span class="skill-level-text">Avanzado (95%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Gestión de caja: 95%">
+                  <div class="skill-bar-fill" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Control, Percha y Auditoría de Inventarios</span>
+                  <span class="skill-level-text">Avanzado (90%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Control de inventarios: 90%">
+                  <div class="skill-bar-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Atención al Cliente y Negociación en Ventas Retail</span>
+                  <span class="skill-level-text">Avanzado (95%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Atención al cliente: 95%">
+                  <div class="skill-bar-fill" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Estándares de Calidad e Higiene Ocupacional</span>
+                  <span class="skill-level-text">Alto (90%)</span>
+                </div>
+                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                  aria-label="Higiene y calidad: 90%">
+                  <div class="skill-bar-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         5. SECCIÓN: EXPERIENCIA (Desarrollo Web & Trayectoria Operativa)
          -------------------------------------------------------------------- -->
     <section id="experiencia" class="section" aria-labelledby="heading-experiencia">
       <div class="container">
-        <h2 id="heading-experiencia">Experiencia Laboral</h2>
+        <h2 id="heading-experiencia">5. Experiencia &bull; Desarrollo de Sistemas &amp; Operaciones</h2>
         <p class="section-intro">
-          Trayectoria profesional en gestión de puntos de venta, control de inventario, cuadre de caja y atención al
-          cliente en empresas comerciales de alto flujo.
+          Trayectoria combinada en ingeniería de software, arquitectura web en la nube y gestión operativa en empresas comerciales de alto flujo.
         </p>
 
         <div class="experience-list" role="list">
-          <!-- Puesto 1: Cajero no Financiero en Pical S.A. -->
+
+          <!-- Puesto 1: Desarrollador Full Stack & Arquitectura Cloud en Proyecto Luuv -->
+          <article class="experience-card arcade-cabinet-card" role="listitem">
+            <div class="card-header-flex">
+              <h3 class="card-title">Desarrollador Full Stack &amp; Arquitecto Web</h3>
+              <div>
+                <span class="badge-status" style="background: #10B981; color: white;">En Producción</span>
+                <span class="badge-date">2025 – Presente</span>
+              </div>
+            </div>
+            <div class="company-location">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+              </svg>
+              <span><strong>Luuv Web Platform</strong> &bull; Proyecto Independiente Cloud &bull; Guayaquil, Ecuador</span>
+            </div>
+            <ul class="bullet-list">
+              <li>Diseño y programación integral del backend con Java y el framework <strong>Spring Boot</strong>.</li>
+              <li>Implementación de mensajería bidireccional en tiempo real con <strong>WebSockets</strong> y persistencia en bases de datos relacionales SQL.</li>
+              <li>Despliegue continuo en la nube mediante <strong>Render Cloud</strong> con monitoreo en producción.</li>
+            </ul>
+          </article>
+
+          <!-- Puesto 2: Cajero no Financiero en Pical S.A. -->
           <article class="experience-card" role="listitem">
             <div class="card-header-flex">
-              <h3 class="card-title">Cajero no Financiero</h3>
+              <h3 class="card-title">Cajero no Financiero &amp; Gestión POS</h3>
               <span class="badge-date">Noviembre 2024 – Diciembre 2024</span>
             </div>
             <div class="company-location">
@@ -504,21 +1088,16 @@
               <span><strong>Pical S.A. Manufacturas Americanas Cia. Ltda.</strong> &bull; Ambato, Ecuador</span>
             </div>
             <ul class="bullet-list">
-              <li>Gestión de transacciones de pago en caja con efectivo, tarjetas de crédito y débito, y aplicaciones de
-                pago como DeUna.</li>
-              <li>Utilización de software de punto de venta (POS) para registrar productos, aplicar descuentos,
-                promociones y procesar transacciones de clientes.</li>
-              <li>Asesoramiento de ventas a clientes en la selección y combinación de prendas de vestir, incluyendo
-                ternos, camisas, corbatas y accesorios para eventos especiales.</li>
-              <li>Realización de contabilidad y control de inventario de la mercancía recibida de la bodega matriz para
-                asegurar su correcta recepción y distribución.</li>
+              <li>Administración de transacciones en caja POS con tarjetas de crédito/débito y pasarela de pago digital DeUna.</li>
+              <li>Auditoría, contabilidad y control del 100% del inventario recibido desde la bodega matriz.</li>
+              <li>Asesoramiento personalizado en ventas de prendas formales y atención al cliente de alto nivel.</li>
             </ul>
           </article>
 
-          <!-- Puesto 2: Trabajador Operativo en TIA S.A. -->
+          <!-- Puesto 3: Trabajador Operativo en TIA S.A. -->
           <article class="experience-card" role="listitem">
             <div class="card-header-flex">
-              <h3 class="card-title">Trabajador Operativo</h3>
+              <h3 class="card-title">Trabajador Operativo &amp; Cuadre de Caja</h3>
               <span class="badge-date">Octubre 2022 – Enero 2023</span>
             </div>
             <div class="company-location">
@@ -530,19 +1109,16 @@
               <span><strong>Tiendas Industriales TIA S.A.</strong> &bull; Guayaquil, Ecuador</span>
             </div>
             <ul class="bullet-list">
-              <li><strong>Gestión de caja:</strong> Apertura y cierre de caja, cuadre diario, y manejo de transacciones
-                con billetes, tarjetas de débito y crédito (Datafast).</li>
-              <li><strong>Atención al cliente:</strong> Registro de productos en el punto de venta (POS) y asesoramiento
-                sobre descuentos y promociones.</li>
-              <li><strong>Gestión de inventario:</strong> Recepción, contabilidad, organización y percha de mercadería
-                en bodega y estanterías, asegurando la disponibilidad de productos.</li>
+              <li>Apertura y cierre diario de caja, cuadre financiero de ingresos y procesamiento de pagos con Datafast.</li>
+              <li>Recepción, clasificación, conteo cíclico y percha de mercadería en bodega y pasillos.</li>
+              <li>Resolución ágil de dudas y atención al cliente en entorno de alto tránsito diario.</li>
             </ul>
           </article>
 
-          <!-- Puesto 3: Polifuncional en Carl's Jr. -->
+          <!-- Puesto 4: Polifuncional en Carl's Jr. -->
           <article class="experience-card" role="listitem">
             <div class="card-header-flex">
-              <h3 class="card-title">Polifuncional</h3>
+              <h3 class="card-title">Polifuncional &amp; Servicio en Drive-Thru</h3>
               <span class="badge-date">Junio 2017 – Septiembre 2017</span>
             </div>
             <div class="company-location">
@@ -554,560 +1130,552 @@
               <span><strong>Carl's Jr.</strong> &bull; Guayaquil, Ecuador</span>
             </div>
             <ul class="bullet-list">
-              <li><strong>Preparación de alimentos:</strong> Elaboración de hamburguesas, papas fritas, filetes de pollo
-                y batidos (Ice Cream), siguiendo estándares de calidad y tiempos de servicio.</li>
-              <li><strong>Abastecimiento y control de inventario:</strong> Manejo de carnes, salsas y vegetales para
-                asegurar disponibilidad continua durante el turno.</li>
-              <li><strong>Servicio en Drive-Thru:</strong> Toma de pedidos con sistema de audio, preparación de bebidas
-                y cobro directo desde vehículos.</li>
-              <li><strong>Gestión de inventario y limpieza:</strong> Recepción y verificación de productos según fecha
-                de caducidad; mantenimiento de áreas de cocina, caja y salón.</li>
-              <li><strong>Operaciones de caja:</strong> Apertura y cierre, procesamiento de pagos con efectivo y
-                tarjetas (Datafast, Medianet).</li>
+              <li>Toma de pedidos con sistema de audio de ventanilla Drive-Thru y cobro expedito con datáfonos.</li>
+              <li>Preparación de alimentos bajo rigurosos protocolos de salubridad y rotación de insumos (sistema PEPS).</li>
+              <li>Cuadres de caja al cierre de turno y cumplimiento de metas de velocidad de servicio.</li>
             </ul>
           </article>
+
         </div>
       </div>
     </section>
 
     <!-- --------------------------------------------------------------------
-         4. SECCIÓN: HABILIDADES Y LENGUAJES
-         -------------------------------------------------------------------- -->
-    <section id="habilidades" class="section" aria-labelledby="heading-habilidades">
-      <div class="container">
-        <h2 id="heading-habilidades">Habilidades y Lenguajes</h2>
-        <p class="section-intro">
-          Competencias técnicas y habilidades blandas con representación visual y semántica accesible (indicador
-          numérico explícito y atributos accesibles ARIA).
-        </p>
-
-        <div class="skills-grid">
-          <!-- Columna 1: Habilidades Técnicas -->
-          <div class="skills-category">
-            <h3 class="subsection-heading">
-              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
-              <span>Habilidades Técnicas</span>
-            </h3>
-
-            <div class="skills-list">
-              <!-- Habilidad Técnica 1 -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Manejo de Puntos de Venta (POS), Datafast, Medianet y DeUna</span>
-                  <span class="skill-level-text" aria-hidden="true">Avanzado (95%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0"
-                  aria-valuemax="100" aria-label="Manejo de POS y pasarelas de pago: 95% avanzado">
-                  <div class="skill-bar-fill" style="width: 95%;"></div>
-                </div>
-              </div>
-
-              <!-- Habilidad Técnica 2 -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Gestión de Caja, Apertura, Cierre y Cuadre Diario</span>
-                  <span class="skill-level-text" aria-hidden="true">Avanzado (95%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0"
-                  aria-valuemax="100" aria-label="Gestión de caja y cuadre: 95% avanzado">
-                  <div class="skill-bar-fill" style="width: 95%;"></div>
-                </div>
-              </div>
-
-              <!-- Habilidad Técnica 3 -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Control, Percha y Contabilidad de Inventario</span>
-                  <span class="skill-level-text" aria-hidden="true">Avanzado (90%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                  aria-valuemax="100" aria-label="Control y contabilidad de inventario: 90% avanzado">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
-              </div>
-
-              <!-- Habilidad Técnica 4 -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Microsoft Office (Word y Excel)</span>
-                  <span class="skill-level-text" aria-hidden="true">Intermedio-Avanzado (85%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="85" aria-valuemin="0"
-                  aria-valuemax="100" aria-label="Microsoft Office Word y Excel: 85% intermedio avanzado">
-                  <div class="skill-bar-fill" style="width: 85%;"></div>
-                </div>
-              </div>
-
-              <!-- Habilidad Técnica 5: Formación de Software -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Desarrollo de Software y Algoritmos (C#, C++, Java, Python)</span>
-                  <span class="skill-level-text" aria-hidden="true">Intermedio (80%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="80" aria-valuemin="0"
-                  aria-valuemax="100"
-                  aria-label="Desarrollo de software en C#, C++, Java y Python: 80% nivel intermedio">
-                  <div class="skill-bar-fill" style="width: 80%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Columna 2: Habilidades Blandas -->
-          <div class="skills-category">
-            <h3 class="subsection-heading">
-              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-              <span>Habilidades Blandas</span>
-            </h3>
-
-            <div class="skills-list">
-              <!-- Habilidad Blanda 1 -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Trabajo en Equipo bajo Presión y Ritmo Rápido</span>
-                  <span class="skill-level-text" aria-hidden="true">Sobresaliente (95%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0"
-                  aria-valuemax="100" aria-label="Trabajo en equipo bajo presión: 95% sobresaliente">
-                  <div class="skill-bar-fill" style="width: 95%;"></div>
-                </div>
-              </div>
-
-              <!-- Habilidad Blanda 2 -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Atención al Cliente y Resolución de Conflictos</span>
-                  <span class="skill-level-text" aria-hidden="true">Sobresaliente (95%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0"
-                  aria-valuemax="100" aria-label="Atención al cliente y resolución de conflictos: 95% sobresaliente">
-                  <div class="skill-bar-fill" style="width: 95%;"></div>
-                </div>
-              </div>
-
-              <!-- Habilidad Blanda 3 -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Pensamiento Crítico y Toma de Decisiones Estratégicas</span>
-                  <span class="skill-level-text" aria-hidden="true">Alto (90%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                  aria-valuemax="100" aria-label="Pensamiento crítico y reflexivo: 90% nivel alto">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
-              </div>
-
-              <!-- Habilidad Blanda 4 -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Comunicación Efectiva, Empatía y Resiliencia</span>
-                  <span class="skill-level-text" aria-hidden="true">Alto (90%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                  aria-valuemax="100" aria-label="Comunicación efectiva y resiliencia: 90% nivel alto">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
-              </div>
-
-              <!-- Habilidad Blanda 5 -->
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Organización, Limpieza y Estándares de Higiene</span>
-                  <span class="skill-level-text" aria-hidden="true">Alto (90%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0"
-                  aria-valuemax="100" aria-label="Organización y cumplimiento de estándares: 90% nivel alto">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bloque: Lenguajes e Idiomas -->
-        <div class="languages-box">
-          <h3 class="subsection-heading">
-            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="2" y1="12" x2="22" y2="12"></line>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-              </path>
-            </svg>
-            <span>Lenguajes e Idiomas</span>
-          </h3>
-          <p>
-            Idiomas de comunicación y lenguajes de programación en aprendizaje continuo:
-          </p>
-
-          <div class="languages-grid">
-            <div class="language-card">
-              <h4 class="language-title">Español</h4>
-              <p>Nivel: <strong>Nativo</strong></p>
-            </div>
-            <div class="language-card">
-              <h4 class="language-title">Inglés</h4>
-              <p>Nivel: <strong>Intermedio - Avanzado (B2)</strong></p>
-            </div>
-            <div class="language-card">
-              <h4 class="language-title">Lenguajes de Programación</h4>
-              <p>Experiencia: <strong>C#, C++, Java, Python</strong></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- --------------------------------------------------------------------
-         5. SECCIÓN: PROYECTOS
+         6. SECCIÓN: GALERÍA DE PROYECTOS (Filtro Dinámico, Pinterest / Instagram)
          -------------------------------------------------------------------- -->
     <section id="proyectos" class="section" aria-labelledby="heading-proyectos">
       <div class="container">
-        <h2 id="heading-proyectos">Proyectos</h2>
+        <h2 id="heading-proyectos">6. Galería de Proyectos &bull; Filtro Dinámico Interactivo</h2>
         <p class="section-intro">
-          Aplicación web interactiva desarrollada e implementada en producción con arquitectura moderna y
-          funcionalidades en tiempo real.
+          Aplicaciones de software diseñadas e implementadas con arquitecturas modernas. Utiliza los botones de filtro para explorar por categoría.
         </p>
 
-        <div class="projects-container">
-          <!-- Tarjeta de Proyecto Principal: Luuv -->
-          <article class="project-card project-card-featured">
-            <div class="project-body">
-              <div class="card-header-flex">
-                <h3 class="project-title" style="margin-bottom: 0;">Luuv &bull; Aplicación Web de Citas</h3>
-                <div>
-                  <span class="badge-status">En Producción</span>
-                  <span class="badge-date">Full Stack</span>
-                </div>
+        <!-- Barra de Filtros Dinámicos por Categorías -->
+        <div class="project-filter-toolbar" role="group" aria-label="Filtro de proyectos por categoría">
+          <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">
+            <span>Todos los Proyectos</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="fullstack" aria-pressed="false">
+            <span>Full Stack &amp; Cloud</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="frontend" aria-pressed="false">
+            <span>Frontend &amp; Accesibilidad</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="software" aria-pressed="false">
+            <span>Software &amp; Algoritmos</span>
+          </button>
+        </div>
+
+        <!-- Grid de Proyectos Estilo Pinterest / Instagram + Arcade Cards -->
+        <div class="projects-gallery-grid">
+
+          <!-- Proyecto 1: Luuv (Full Stack & Cloud) -->
+          <article class="gallery-project-card arcade-cabinet-card" data-category="fullstack cloud">
+            <div class="gallery-card-banner">
+              <div class="gallery-banner-top">
+                <span class="gallery-category-pill">Full Stack &bull; Real-Time</span>
+                <span class="gallery-stats-pill">★ 4.0 En Vivo</span>
               </div>
-
-              <p class="project-description">
-                Plataforma interactiva de citas diseñada para conectar personas de forma dinámica y segura según
-                afinidades reales. Integra un algoritmo de emparejamiento por intereses compartidos, interacción ágil de
-                likes y dislikes, mensajería instantánea en tiempo real y funciones exclusivas para usuarios Premium.
+              <h3 class="gallery-banner-title">Luuv &bull; Aplicación Web de Citas</h3>
+            </div>
+            <div class="gallery-card-body">
+              <p class="gallery-card-desc">
+                Plataforma interactiva de citas con algoritmo de emparejamiento inteligente por intereses mutuos,
+                chat en tiempo real con WebSockets, filtros de afinidad y autenticación segura con roles.
               </p>
-
-              <!-- Características Clave -->
-              <h4 style="font-size: 1rem; margin-bottom: 0.65rem; color: var(--text-primary);">Características
-                Principales:</h4>
-              <ul class="project-features-list" role="list">
-                <li class="project-feature-item" role="listitem">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span><strong>Emparejamiento inteligente:</strong> Match por intereses mutuos.</span>
-                </li>
-                <li class="project-feature-item" role="listitem">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span><strong>Chat en tiempo real:</strong> Mensajería fluida e instantánea.</span>
-                </li>
-                <li class="project-feature-item" role="listitem">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span><strong>Interacción dinámica:</strong> Sistema ágil de Likes y Dislikes.</span>
-                </li>
-                <li class="project-feature-item" role="listitem">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span><strong>Suscripción Premium:</strong> Filtros y beneficios exclusivos.</span>
-                </li>
-                <li class="project-feature-item" role="listitem">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span><strong>Gestión de cuentas:</strong> Autenticación y login protegido.</span>
-                </li>
-                <li class="project-feature-item" role="listitem">
-                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span><strong>Cloud Hosting:</strong> Despliegue en la nube con Render.</span>
-                </li>
-              </ul>
-
-              <!-- Etiquetas de Tecnologías -->
-              <h4
-                style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">
-                Tecnologías Empleadas:</h4>
-              <ul class="project-tech-list" aria-label="Tecnologías empleadas en Luuv">
+              <ul class="project-tech-list" aria-label="Tecnologías de Luuv">
                 <li class="tech-tag">Java</li>
                 <li class="tech-tag">Spring Boot</li>
-                <li class="tech-tag">WebSockets (Real-Time)</li>
-                <li class="tech-tag">SQL / Base de Datos</li>
-                <li class="tech-tag">HTML5 / CSS3</li>
-                <li class="tech-tag">JavaScript</li>
+                <li class="tech-tag">WebSockets</li>
+                <li class="tech-tag">SQL Database</li>
                 <li class="tech-tag">Render Cloud</li>
               </ul>
-
-              <div class="project-footer"
-                style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;">
+              <div class="gallery-card-footer">
                 <a href="https://luuv-spring.onrender.com/login" class="btn btn-primary" target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Abrir y probar la aplicación web Luuv en vivo (se abre en una nueva pestaña)">
-                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                    <polyline points="15 3 21 3 21 9"></polyline>
-                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                  </svg>
-                  <span>Probar aplicación Luuv en vivo</span>
-                  <span class="sr-only">(se abre en una nueva pestaña)</span>
+                  rel="noopener noreferrer" aria-label="Probar Luuv en vivo en Render (se abre en nueva pestaña)">
+                  <span>Probar en vivo 🚀</span>
                 </a>
-                <span style="font-size: 0.875rem; color: var(--text-muted);">
-                  URL en vivo: <code>https://luuv-spring.onrender.com/login</code>
-                </span>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">En producción</span>
               </div>
             </div>
           </article>
+
+          <!-- Proyecto 2: Sistema de Facturación y Control POS 4.0 (Software) -->
+          <article class="gallery-project-card" data-category="software">
+            <div class="gallery-card-banner" style="background: linear-gradient(135deg, #0C1F17 0%, #17382B 50%, #004D40 100%);">
+              <div class="gallery-banner-top">
+                <span class="gallery-category-pill" style="color: #00E676; border-color: #00E676;">Software &amp; POS</span>
+                <span class="gallery-stats-pill">📦 Stock &amp; Caja</span>
+              </div>
+              <h3 class="gallery-banner-title">Sistema POS &amp; Auditoría de Inventarios</h3>
+            </div>
+            <div class="gallery-card-body">
+              <p class="gallery-card-desc">
+                Solución de gestión de punto de venta desarrollada en C# y .NET, con módulo de cuadre diario automático,
+                registro de transacciones multi-pasarela (Datafast/DeUna) y control de rotación de stock.
+              </p>
+              <ul class="project-tech-list" aria-label="Tecnologías POS">
+                <li class="tech-tag">C#</li>
+                <li class="tech-tag">.NET</li>
+                <li class="tech-tag">SQL Server</li>
+                <li class="tech-tag">Arquitectura N-Capas</li>
+              </ul>
+              <div class="gallery-card-footer">
+                <a href="#contactos" class="btn btn-secondary">
+                  <span>Solicitar Demo</span>
+                </a>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Empresarial</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 3: Algoritmo de Matching por Afinidades & Grafos (Software & Algoritmos) -->
+          <article class="gallery-project-card" data-category="software">
+            <div class="gallery-card-banner" style="background: linear-gradient(135deg, #2A1010 0%, #4D1A1A 50%, #801515 100%);">
+              <div class="gallery-banner-top">
+                <span class="gallery-category-pill" style="color: #FF5E00; border-color: #FF5E00;">Algoritmos 4.0</span>
+                <span class="gallery-stats-pill">🧠 Grafos</span>
+              </div>
+              <h3 class="gallery-banner-title">Algoritmo de Matching por Afinidades</h3>
+            </div>
+            <div class="gallery-card-body">
+              <p class="gallery-card-desc">
+                Implementación en Python de un motor de recomendación y matching basado en grafos bipartitos y ponderación
+                de intereses compartidos, optimizando la complejidad algorítmica para respuestas en milisegundos.
+              </p>
+              <ul class="project-tech-list" aria-label="Tecnologías de Algoritmo">
+                <li class="tech-tag">Python</li>
+                <li class="tech-tag">Grafos</li>
+                <li class="tech-tag">Estructuras de Datos</li>
+                <li class="tech-tag">Big-O Optimization</li>
+              </ul>
+              <div class="gallery-card-footer">
+                <a href="https://github.com/epdodev" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                  <span>Ver en GitHub</span>
+                </a>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">Open Source</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 4: Portafolio Accesible WCAG AAA & Sonorización (Frontend & Accesibilidad) -->
+          <article class="gallery-project-card" data-category="frontend">
+            <div class="gallery-card-banner" style="background: linear-gradient(135deg, #1A102A 0%, #30174D 50%, #4A154B 100%);">
+              <div class="gallery-banner-top">
+                <span class="gallery-category-pill" style="color: #FFD700; border-color: #FFD700;">Frontend &amp; A11y</span>
+                <span class="gallery-stats-pill">♿ WCAG AAA</span>
+              </div>
+              <h3 class="gallery-banner-title">Portafolio Web Accesible 4.0</h3>
+            </div>
+            <div class="gallery-card-body">
+              <p class="gallery-card-desc">
+                Plataforma web con sonorización mediante Web Audio API, síntesis de voz nativa, modo alto contraste AAA,
+                subtítulos para sordos y temática Street Fighter II Arcade Edition sin dependencias externas.
+              </p>
+              <ul class="project-tech-list" aria-label="Tecnologías del Portafolio">
+                <li class="tech-tag">HTML5 Semántico</li>
+                <li class="tech-tag">CSS3 Vanilla</li>
+                <li class="tech-tag">Web Audio API</li>
+                <li class="tech-tag">SpeechSynthesis</li>
+                <li class="tech-tag">WCAG 2.1 AAA</li>
+              </ul>
+              <div class="gallery-card-footer">
+                <a href="#main-content" class="btn btn-secondary">
+                  <span>Proyecto Actual</span>
+                </a>
+                <span style="font-size: 0.8rem; color: #10B981; font-weight: 700;">100% Inclusivo</span>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
     <!-- --------------------------------------------------------------------
-         6. SECCIÓN: CONTACTOS
+         7. SECCIÓN: LOGROS Y RECONOCIMIENTOS (Distinciones, Excelencia 4.0)
+         -------------------------------------------------------------------- -->
+    <section id="logros" class="section" aria-labelledby="heading-logros">
+      <div class="container">
+        <h2 id="heading-logros">7. Logros &amp; Reconocimientos &bull; Distinciones</h2>
+        <p class="section-intro">
+          Evidencia de excelencia académica, liderazgo estudiantil y compromiso operativo en la Universidad de Guayaquil y en el sector comercial.
+        </p>
+
+        <div class="projects-gallery-grid">
+          <!-- Logro 1 -->
+          <article class="gallery-project-card arcade-cabinet-card" style="padding: 1.5rem;">
+            <div style="font-size: 2.2rem; margin-bottom: 0.5rem;" aria-hidden="true">🏆</div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+              Despliegue y Puesta en Producción de Luuv
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+              Diseño, desarrollo y publicación exitosa en la nube de la plataforma web <strong>Luuv</strong>, con arquitectura basada en Spring Boot,
+              WebSockets y base de datos relacional para usuarios reales en entornos de alta concurrencia.
+            </p>
+            <span class="badge-status" style="margin-top: 1rem; align-self: flex-start; background: #10B981; color: white;">Hito Tecnológico</span>
+          </article>
+
+          <!-- Logro 2 -->
+          <article class="gallery-project-card arcade-cabinet-card" style="padding: 1.5rem;">
+            <div style="font-size: 2.2rem; margin-bottom: 0.5rem;" aria-hidden="true">⭐</div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+              Excelencia Operativa: 100% en Cuadres de Caja
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+              Récord continuo de cero faltantes y cuadres de caja exactos en jornadas de alto tráfico comercial en <strong>Pical S.A.</strong> y <strong>Tiendas TÍA S.A.</strong>,
+              demostrando meticulosidad, integridad y pensamiento estructurado.
+            </p>
+            <span class="badge-status" style="margin-top: 1rem; align-self: flex-start; background: var(--ug-blue); color: white;">Excelencia Operativa</span>
+          </article>
+
+          <!-- Logro 3 -->
+          <article class="gallery-project-card arcade-cabinet-card" style="padding: 1.5rem;">
+            <div style="font-size: 2.2rem; margin-bottom: 0.5rem;" aria-hidden="true">🎓</div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+              Rendimiento Destacado en Ingeniería en Software
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+              Participación y desempeño sobresaliente en la Facultad de Ciencias Matemáticas y Físicas de la <strong>Universidad de Guayaquil (UG)</strong>,
+              liderando equipos en proyectos de programación, estructuras de datos y metodologías ágiles.
+            </p>
+            <span class="badge-status" style="margin-top: 1rem; align-self: flex-start; background: var(--sf-fire-orange); color: white;">Académico UG</span>
+          </article>
+
+          <!-- Logro 4 -->
+          <article class="gallery-project-card arcade-cabinet-card" style="padding: 1.5rem;">
+            <div style="font-size: 2.2rem; margin-bottom: 0.5rem;" aria-hidden="true">🎖️</div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+              Certificaciones en Soporte Vital &amp; Pensamiento Crítico
+            </h3>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+              Acreditación oficial por la <strong>Cruz Roja Ecuatoriana</strong> (Primeros Auxilios y RCP) y por la <strong>UNEMI</strong> (Pensamiento Crítico y Reflexivo),
+              fortaleciendo la capacidad de respuesta y liderazgo en situaciones imprevistas.
+            </p>
+            <span class="badge-status" style="margin-top: 1rem; align-self: flex-start; background: var(--accent-color); color: white;">Certificado Oficial</span>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         8. SECCIÓN: REFERENCIAS & ACCESO A CV.JPG LOCAL
+         -------------------------------------------------------------------- -->
+    <section id="referencias" class="section" aria-labelledby="heading-referencias">
+      <div class="container">
+        <h2 id="heading-referencias">8. Referencias Verificables &bull; Documento Gráfico cv.jpg</h2>
+        <p class="section-intro">
+          Contactos profesionales y académicos verificables, además de acceso directo al documento gráfico curricular oficial <code>cv.jpg</code>.
+        </p>
+
+        <div class="contact-fast-grid" role="list" aria-label="Referencias profesionales verificables">
+          <!-- Ref 1 -->
+          <div class="contact-fast-card arcade-cabinet-card" role="listitem">
+            <div class="contact-fast-info">
+              <div class="contact-fast-icon" aria-hidden="true">👨‍🏫</div>
+              <div class="contact-fast-texts">
+                <div class="contact-fast-label">Referencia Académica UG</div>
+                <div class="contact-fast-value">Coordinación Académica &bull; Ingeniería en Software</div>
+                <small style="color: var(--text-muted);">Universidad de Guayaquil &bull; Verificable previa solicitud</small>
+              </div>
+            </div>
+            <button type="button" class="contact-copy-btn" data-copy="victor.moran@ug.edu.ec" data-copy-label="Contacto Académico UG">
+              <span>Copiar contacto</span>
+            </button>
+          </div>
+
+          <!-- Ref 2 -->
+          <div class="contact-fast-card arcade-cabinet-card" role="listitem">
+            <div class="contact-fast-info">
+              <div class="contact-fast-icon" aria-hidden="true">👔</div>
+              <div class="contact-fast-texts">
+                <div class="contact-fast-label">Referencia Laboral Retail</div>
+                <div class="contact-fast-value">Supervisión de Operaciones &bull; Pical S.A.</div>
+                <small style="color: var(--text-muted);">Manufacturas Americanas Cia. Ltda. &bull; Verificable</small>
+              </div>
+            </div>
+            <button type="button" class="contact-copy-btn" data-copy="+593986388715" data-copy-label="Contacto de Operaciones">
+              <span>Copiar teléfono</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Gestión de Recursos Locales: cv.jpg y CV.pdf -->
+        <div class="arcade-cabinet-card" style="padding: 2rem; margin-top: 1.5rem; text-align: center; background: var(--bg-surface);">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;" aria-hidden="true">📄</div>
+          <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
+            Documento Gráfico de Hoja de Vida (cv.jpg)
+          </h3>
+          <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+            Accede al currículum vitae oficial en formato gráfico de alta definición (1200 &times; 1700 px) vinculado en la carpeta raíz del proyecto,
+            con visor interactivo con zoom o descarga directa instantánea.
+          </p>
+
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary" data-open-modal-img="cv"
+              aria-label="Abrir cv.jpg en visor modal interactivo con zoom">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              <span>Abrir cv.jpg en Visor Modal</span>
+            </button>
+
+            <a href="cv.jpg" download="Victor_Moran_CV.jpg" class="btn btn-secondary"
+              aria-label="Descargar archivo gráfico cv.jpg directamente">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Descargar cv.jpg</span>
+            </a>
+
+            <a href="assets/docs/CV.pdf" download="Victor_Moran_CV.pdf" class="btn btn-secondary"
+              aria-label="Descargar currículum vitae en formato PDF (97 KB)">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>Descargar CV.pdf</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- --------------------------------------------------------------------
+         9. SECCIÓN: CONTACTOS (Tarjetas con Copiado Rápido & Formulario Netlify)
          -------------------------------------------------------------------- -->
     <section id="contactos" class="section" aria-labelledby="heading-contactos">
       <div class="container">
-        <h2 id="heading-contactos">Contactos</h2>
+        <h2 id="heading-contactos">9. Contactos Oficiales &bull; Copiado Rápido &amp; Formulario Netlify</h2>
         <p class="section-intro">
-          Información de contacto directa extraída del currículum vitae y formulario de mensaje directo.
+          Comunícate directamente a través de cualquiera de las vías oficiales con opción de <strong>copiado rápido con un clic</strong> al portapapeles, o envía un mensaje directo compatible con <strong>Netlify Forms</strong>.
         </p>
 
-        <div class="contact-wrapper">
-          <!-- Columna Izquierda: Información de Contacto Directo -->
-          <div>
-            <div class="contact-info-list">
-              <!-- Teléfono -->
-              <div class="contact-card">
-                <div class="contact-icon-wrapper" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path
-                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                    </path>
-                  </svg>
-                </div>
-                <div>
-                  <div class="contact-label">Teléfono Móvil</div>
-                  <div class="contact-value">
-                    <a href="tel:+593986388715" aria-label="Llamar al teléfono +593 986388715">+593 986388715</a>
-                  </div>
-                </div>
-              </div>
+        <!-- Tarjetas Interactivas con Copiado Rápido -->
+        <div class="contact-fast-grid" role="list" aria-label="Tarjetas de contacto con copiado rápido">
 
-              <!-- Correo electrónico -->
-              <div class="contact-card">
-                <div class="contact-icon-wrapper" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </div>
-                <div>
-                  <div class="contact-label">Correo Electrónico</div>
-                  <div class="contact-value">
-                    <a href="mailto:victormoran9@hotmail.com"
-                      aria-label="Enviar correo electrónico a victormoran9@hotmail.com">victormoran9@hotmail.com</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Ubicación física -->
-              <div class="contact-card">
-                <div class="contact-icon-wrapper" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                </div>
-                <div>
-                  <div class="contact-label">Dirección</div>
-                  <div class="contact-value">
-                    <span>Babahoyo y Portete, Ecuador</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Disponibilidad / Preferencia -->
-              <div class="contact-card">
-                <div class="contact-icon-wrapper" aria-hidden="true">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                </div>
-                <div>
-                  <div class="contact-label">Disponibilidad de Contacto</div>
-                  <div class="contact-value">
-                    <span>Lunes a Viernes de 08:00 a 17:00 (Hora Ecuador / GMT-5)</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Columna Derecha: Formulario Accesible listo para Netlify Forms -->
-          <div class="contact-form-container">
-            <h3 class="subsection-heading">Envíame un mensaje</h3>
-            <p>Completa este formulario y me pondré en contacto contigo a la brevedad.</p>
-
-            <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify novalidate>
-              <!-- Campo oculto requerido por Netlify para formularios estáticos -->
-              <input type="hidden" name="form-name" value="contact">
-
-              <!-- Campo 1: Nombre completo -->
-              <div class="form-group">
-                <label for="contact-name" class="form-label">
-                  Nombre completo <span class="required-mark" aria-hidden="true">*</span>
-                </label>
-                <input type="text" id="contact-name" name="name" class="form-input" required aria-required="true"
-                  aria-describedby="name-error" autocomplete="name" placeholder="Ej. Juan Pérez">
-                <div id="name-error" class="field-error" role="alert"></div>
-              </div>
-
-              <!-- Campo 2: Correo electrónico -->
-              <div class="form-group">
-                <label for="contact-email" class="form-label">
-                  Correo electrónico <span class="required-mark" aria-hidden="true">*</span>
-                </label>
-                <input type="email" id="contact-email" name="email" class="form-input" required aria-required="true"
-                  aria-describedby="email-error" autocomplete="email" placeholder="ejemplo@correo.com">
-                <div id="email-error" class="field-error" role="alert"></div>
-              </div>
-
-              <!-- Campo 3: Asunto -->
-              <div class="form-group">
-                <label for="contact-subject" class="form-label">
-                  Asunto <span class="required-mark" aria-hidden="true">*</span>
-                </label>
-                <input type="text" id="contact-subject" name="subject" class="form-input" required aria-required="true"
-                  aria-describedby="subject-error" placeholder="Ej. Oportunidad laboral / Consulta">
-                <div id="subject-error" class="field-error" role="alert"></div>
-              </div>
-
-              <!-- Campo 4: Mensaje -->
-              <div class="form-group">
-                <label for="contact-message" class="form-label">
-                  Mensaje <span class="required-mark" aria-hidden="true">*</span>
-                </label>
-                <textarea id="contact-message" name="message" class="form-textarea" required aria-required="true"
-                  aria-describedby="message-error" placeholder="Escribe aquí tu consulta o propuesta..."></textarea>
-                <div id="message-error" class="field-error" role="alert"></div>
-              </div>
-
-              <!-- Botón de Envío -->
-              <button type="submit" class="btn btn-primary" style="width: 100%;">
-                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          <!-- WhatsApp -->
+          <div class="contact-fast-card" role="listitem">
+            <div class="contact-fast-info">
+              <div class="contact-fast-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                 </svg>
-                <span>Enviar mensaje</span>
-              </button>
-
-              <!-- Alerta de estado tras envío -->
-              <div id="form-status" class="form-status-alert" role="status" tabindex="-1"></div>
-            </form>
+              </div>
+              <div class="contact-fast-texts">
+                <div class="contact-fast-label">WhatsApp Directo</div>
+                <a href="https://wa.me/593986388715" target="_blank" rel="noopener noreferrer" class="contact-fast-value"
+                  aria-label="Abrir chat de WhatsApp con +593 986388715 (se abre en nueva pestaña)">
+                  +593 986388715
+                </a>
+              </div>
+            </div>
+            <button type="button" class="contact-copy-btn" data-copy="+593986388715" data-copy-label="WhatsApp">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copiar</span>
+            </button>
           </div>
+
+          <!-- LinkedIn -->
+          <div class="contact-fast-card" role="listitem">
+            <div class="contact-fast-info">
+              <div class="contact-fast-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </div>
+              <div class="contact-fast-texts">
+                <div class="contact-fast-label">LinkedIn Oficial</div>
+                <a href="https://www.linkedin.com/in/epdodev" target="_blank" rel="noopener noreferrer" class="contact-fast-value"
+                  aria-label="Abrir perfil de LinkedIn linkedin.com/in/epdodev (se abre en nueva pestaña)">
+                  linkedin.com/in/epdodev
+                </a>
+              </div>
+            </div>
+            <button type="button" class="contact-copy-btn" data-copy="https://www.linkedin.com/in/epdodev" data-copy-label="LinkedIn">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copiar</span>
+            </button>
+          </div>
+
+          <!-- Correo Institucional UG -->
+          <div class="contact-fast-card" role="listitem">
+            <div class="contact-fast-info">
+              <div class="contact-fast-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="contact-fast-texts">
+                <div class="contact-fast-label">Correo Institucional (UG)</div>
+                <a href="mailto:victor.moran@ug.edu.ec" class="contact-fast-value"
+                  aria-label="Enviar correo institucional a victor.moran@ug.edu.ec">
+                  victor.moran@ug.edu.ec
+                </a>
+              </div>
+            </div>
+            <button type="button" class="contact-copy-btn" data-copy="victor.moran@ug.edu.ec" data-copy-label="Correo Institucional">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copiar</span>
+            </button>
+          </div>
+
+          <!-- Correo Personal -->
+          <div class="contact-fast-card" role="listitem">
+            <div class="contact-fast-info">
+              <div class="contact-fast-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
+                </svg>
+              </div>
+              <div class="contact-fast-texts">
+                <div class="contact-fast-label">Correo Personal Directo</div>
+                <a href="mailto:victormoran9@hotmail.com" class="contact-fast-value"
+                  aria-label="Enviar correo personal a victormoran9@hotmail.com">
+                  victormoran9@hotmail.com
+                </a>
+              </div>
+            </div>
+            <button type="button" class="contact-copy-btn" data-copy="victormoran9@hotmail.com" data-copy-label="Correo Personal">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copiar</span>
+            </button>
+          </div>
+
+          <!-- Ubicación / Dirección -->
+          <div class="contact-fast-card" role="listitem" style="grid-column: 1 / -1;">
+            <div class="contact-fast-info">
+              <div class="contact-fast-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="contact-fast-texts">
+                <div class="contact-fast-label">Dirección Oficial</div>
+                <div class="contact-fast-value">Babahoyo y Portete &bull; Guayaquil, Ecuador</div>
+              </div>
+            </div>
+            <button type="button" class="contact-copy-btn" data-copy="Babahoyo y Portete, Guayaquil, Ecuador" data-copy-label="Dirección">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Copiar</span>
+            </button>
+          </div>
+
         </div>
-      </div>
-    </section>
 
-    <!-- --------------------------------------------------------------------
-         7. SECCIÓN: REDES PROFESIONALES
-         -------------------------------------------------------------------- -->
-    <section id="redes" class="section" aria-labelledby="heading-redes">
-      <div class="container">
-        <h2 id="heading-redes">Redes Profesionales</h2>
-        <p class="section-intro">
-          Enlaces directos a perfiles profesionales y repositorios de código. Cada enlace se abre en una pestaña nueva
-          con protección de seguridad y aviso accesible.
-        </p>
+        <!-- Formulario Accesible listo para Netlify Forms -->
+        <div class="contact-form-container arcade-cabinet-card" style="padding: 2rem;">
+          <h3 class="subsection-heading">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            <span>Envíame un Mensaje Directo (Netlify Forms)</span>
+          </h3>
+          <p>Completa este formulario accesible. Recibirás respuesta directa a tu correo electrónico.</p>
 
-        <div class="social-links-grid">
-          <!-- Red 1: LinkedIn -->
-          <a href="https://www.linkedin.com/in/epdodev" class="social-card" target="_blank" rel="noopener noreferrer"
-            aria-label="Perfil de LinkedIn de Victor Moran (se abre en una nueva pestaña)">
-            <div class="social-icon-wrapper" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
+          <form id="contact-form" name="contact" method="POST" action="/" data-netlify="true" netlify novalidate>
+            <!-- Requerido por Netlify para formularios estáticos -->
+            <input type="hidden" name="form-name" value="contact">
+
+            <div class="form-group">
+              <label for="contact-name" class="form-label">
+                Nombre completo <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="contact-name" name="name" class="form-input" required aria-required="true"
+                aria-describedby="name-error" autocomplete="name" placeholder="Ej. Ana Morales">
+              <div id="name-error" class="field-error" role="alert"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email" class="form-label">
+                Correo electrónico <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input type="email" id="contact-email" name="email" class="form-input" required aria-required="true"
+                aria-describedby="email-error" autocomplete="email" placeholder="ejemplo@correo.com">
+              <div id="email-error" class="field-error" role="alert"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject" class="form-label">
+                Asunto del mensaje <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <input type="text" id="contact-subject" name="subject" class="form-input" required aria-required="true"
+                aria-describedby="subject-error" placeholder="Ej. Oportunidad Laboral / Proyecto Software 4.0">
+              <div id="subject-error" class="field-error" role="alert"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">
+                Mensaje <span class="required-mark" aria-hidden="true">*</span>
+              </label>
+              <textarea id="contact-message" name="message" class="form-textarea" required aria-required="true"
+                aria-describedby="message-error" placeholder="Escribe aquí tu consulta o propuesta técnica..."></textarea>
+              <div id="message-error" class="field-error" role="alert"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
               </svg>
-            </div>
-            <div>
-              <div class="social-name">LinkedIn</div>
-              <div class="social-handle">@epdodev</div>
-            </div>
-            <span class="sr-only">(abre en nueva ventana)</span>
-          </a>
+              <span>Enviar mensaje</span>
+            </button>
 
-          <!-- Red 2: GitHub -->
-          <a href="https://github.com/epdodev" class="social-card" target="_blank" rel="noopener noreferrer"
-            aria-label="Perfil de GitHub de Victor Moran (se abre en una nueva pestaña)">
-            <div class="social-icon-wrapper" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                </path>
-              </svg>
-            </div>
-            <div>
-              <div class="social-name">GitHub</div>
-              <div class="social-handle">@epdodev</div>
-            </div>
-            <span class="sr-only">(abre en nueva ventana)</span>
-          </a>
-
-          <!-- Red 3: Correo Directo / Enlace Profesional Adicional -->
-          <a href="mailto:victormoran9@hotmail.com" class="social-card"
-            aria-label="Enviar correo electrónico directo a victormoran9@hotmail.com">
-            <div class="social-icon-wrapper" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
-              </svg>
-            </div>
-            <div>
-              <div class="social-name">Email Directo</div>
-              <div class="social-handle">victormoran9@hotmail.com</div>
-            </div>
-          </a>
+            <div id="form-status" class="form-status-alert" role="status" tabindex="-1"></div>
+          </form>
         </div>
+
       </div>
     </section>
 
   </main>
 
   <!-- ======================================================================
-       FOOTER (Pie de página semántico)
+       FOOTER SEMÁNTICO (WCAG 2.1 AA/AAA)
        ====================================================================== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-content">
-      <p class="footer-text">
-        &copy; 2026 Victor Moran. Todos los derechos reservados. Desarrollado con HTML5 semántico, CSS3 y JavaScript
-        vanilla siguiendo estándares WCAG 2.1 AA.
-      </p>
+      <div>
+        <p class="footer-text">
+          &copy; 2026 <strong>Victor Moran</strong> &bull; Estudiante de Ingeniería en Software &bull; <strong>Universidad de Guayaquil (UG)</strong>.
+        </p>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;">
+          Cumplimiento riguroso de las pautas de accesibilidad web <strong>WCAG 2.1 Niveles AA / AAA</strong> para usuarios con capacidades visuales y auditivas reducidas. Dirección de arte Street Fighter II Arcade Edition.
+        </p>
+      </div>
+
       <a href="#acerca-de-mi" class="back-to-top" aria-label="Volver al inicio de la página">
         <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
           stroke-width="2">
@@ -1118,7 +1686,7 @@
     </div>
   </footer>
 
-  <!-- Script interactivo accesible -->
+  <!-- Script interactivo con Web Audio API, SpeechSynthesis y Accesibilidad Universal -->
   <script src="assets/js/script.js"></script>
 </body>
 
