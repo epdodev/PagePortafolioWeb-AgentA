@@ -22,18 +22,15 @@
   // Barra de navegación y controles de encabezado
   const navThemeToggle = document.getElementById("nav-theme-toggle");
   const themeToggleBtn = document.getElementById("theme-toggle");
-  const summaryThemeBtn = document.getElementById("summary-theme-toggle");
+  // summaryThemeBtn removed
   const navSoundToggle = document.getElementById("nav-sound-toggle");
   const floatingSoundToggle = document.getElementById("floating-sound-toggle");
   const mobileNavToggle = document.getElementById("mobile-nav-toggle");
   const navMenu = document.getElementById("nav-menu");
   const navLinks = document.querySelectorAll(".nav-link");
-  const navSummaryBtn = document.getElementById("nav-summary-btn");
+  // navSummaryBtn removed
 
-  // Gateway y Modal de Resumen
-  const summaryIntroScreen = document.getElementById("summary-intro-screen");
-  const btnEnterPortfolio = document.getElementById("btn-enter-portfolio");
-  const summaryCloseModalBtn = document.getElementById("summary-close-modal-btn");
+
 
   // Herramientas de Accesibilidad Flotantes
   const fontSizeBtns = document.querySelectorAll(".size-btn");
@@ -481,7 +478,7 @@
       ? "Cambiar a tema claro (actualmente tema oscuro)"
       : "Cambiar a tema oscuro (actualmente tema claro)";
 
-    [navThemeToggle, themeToggleBtn, summaryThemeBtn].forEach((btn) => {
+    [navThemeToggle, themeToggleBtn].forEach((btn) => {
       if (btn) {
         btn.setAttribute("aria-pressed", isDark ? "true" : "false");
         btn.setAttribute("aria-label", labelText);
@@ -497,7 +494,7 @@
 
   applyTheme(getInitialTheme(), false);
 
-  [navThemeToggle, themeToggleBtn, summaryThemeBtn].forEach((btn) => {
+  [navThemeToggle, themeToggleBtn].forEach((btn) => {
     if (btn) {
       btn.addEventListener("click", () => {
         const currentTheme = htmlElement.getAttribute("data-theme") || "light";
@@ -757,9 +754,6 @@
     if (e.key === "Escape") {
       if (imageViewerModal && !imageViewerModal.classList.contains("is-hidden")) {
         closeImageViewer();
-      }
-      if (summaryIntroScreen && summaryIntroScreen.classList.contains("is-modal")) {
-        closeSummaryModal();
       }
       const floatingA11yContent = document.getElementById("floating-a11y-content");
       const a11yFabToggle = document.getElementById("a11y-fab-toggle");
