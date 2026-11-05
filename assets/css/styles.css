@@ -3008,6 +3008,118 @@ body.matrix-disabled .matrix-canvas {
   outline-offset: 2px;
 }
 
+/* ==========================================================================
+   SECCIÓN 8: REFERENCIAS & RECURSOS DE HOJA DE VIDA (REDISEÑO ELEGANTE)
+   ========================================================================== */
+.reference-card {
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+.reference-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.reference-icon-ug {
+  background: rgba(3, 105, 161, 0.12);
+  color: var(--accent-color);
+  border-radius: var(--radius-md);
+}
+
+[data-theme="dark"] .reference-icon-ug {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+}
+
+.reference-icon-work {
+  background: rgba(245, 166, 35, 0.14);
+  color: #D97706;
+  border-radius: var(--radius-md);
+}
+
+[data-theme="dark"] .reference-icon-work {
+  background: rgba(251, 191, 36, 0.15);
+  color: #FCD34D;
+}
+
+.cv-resource-card {
+  margin-top: 1.75rem;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .cv-resource-card {
+  background: rgba(19, 27, 46, 0.88);
+  border: 1.5px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+.cv-resource-card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] .cv-resource-card:hover {
+  border-color: #38BDF8;
+  box-shadow: 0 16px 42px rgba(56, 189, 248, 0.16);
+}
+
+.cv-resource-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--accent-light);
+  color: var(--accent-text);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.85rem;
+}
+
+[data-theme="dark"] .cv-resource-badge {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38BDF8;
+}
+
+.cv-resource-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.cv-resource-desc {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  max-width: 620px;
+  margin: 0 auto 1.65rem auto;
+  line-height: 1.6;
+}
+
+.cv-resource-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+
+
 /* --------------------------------------------------------------------------
    ACCESIBILIDAD UNIVERSAL: ALTO CONTRASTE AAA & REDUCCIÓN DE ANIMACIONES
    -------------------------------------------------------------------------- */

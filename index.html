@@ -1141,89 +1141,111 @@
     </section>
 
     <!-- --------------------------------------------------------------------
-         8. SECCIÓN: REFERENCIAS & ACCESO A CV.JPG LOCAL
+         8. SECCIÓN: REFERENCIAS & HOJA DE VIDA (CV)
          -------------------------------------------------------------------- -->
     <section id="referencias" class="section" aria-labelledby="heading-referencias">
       <div class="container">
-        <h2 id="heading-referencias">8. Referencias Verificables &bull; Documento Gráfico cv.jpg</h2>
+        <h2 id="heading-referencias">8. Referencias Verificables &bull; Hoja de Vida (CV)</h2>
         <p class="section-intro">
-          Contactos profesionales y académicos verificables, además de acceso directo al documento gráfico curricular oficial <code>cv.jpg</code>.
+          Contactos profesionales y académicos verificables, además de acceso directo y descarga oficial de la hoja de vida curricular.
         </p>
 
+        <!-- Grid de Referencias Profesionales -->
         <div class="contact-fast-grid" role="list" aria-label="Referencias profesionales verificables">
-          <!-- Ref 1 -->
-          <div class="contact-fast-card arcade-cabinet-card" role="listitem">
+          <!-- Ref 1: Académica UG -->
+          <div class="contact-fast-card reference-card" role="listitem">
             <div class="contact-fast-info">
-              <div class="contact-fast-icon" aria-hidden="true">👨‍🏫</div>
+              <div class="contact-fast-icon reference-icon-ug" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
               <div class="contact-fast-texts">
                 <div class="contact-fast-label">Referencia Académica UG</div>
-                <div class="contact-fast-value">Coordinación Académica &bull; Ingeniería en Software</div>
-                <small style="color: var(--text-muted);">Universidad de Guayaquil &bull; Verificable previa solicitud</small>
+                <div class="contact-fast-value">Coordinación &bull; Ingeniería en Software</div>
+                <small style="color: var(--text-muted); display: block; margin-top: 0.15rem;">Universidad de Guayaquil &bull; Verificable previa solicitud</small>
               </div>
             </div>
             <button type="button" class="contact-copy-btn" data-copy="victor.moran@ug.edu.ec" data-copy-label="Contacto Académico UG">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
               <span>Copiar contacto</span>
             </button>
           </div>
 
-          <!-- Ref 2 -->
-          <div class="contact-fast-card arcade-cabinet-card" role="listitem">
+          <!-- Ref 2: Laboral Retail -->
+          <div class="contact-fast-card reference-card" role="listitem">
             <div class="contact-fast-info">
-              <div class="contact-fast-icon" aria-hidden="true">👔</div>
+              <div class="contact-fast-icon reference-icon-work" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
               <div class="contact-fast-texts">
                 <div class="contact-fast-label">Referencia Laboral Retail</div>
-                <div class="contact-fast-value">Supervisión de Operaciones &bull; Pical S.A.</div>
-                <small style="color: var(--text-muted);">Manufacturas Americanas Cia. Ltda. &bull; Verificable</small>
+                <div class="contact-fast-value">Supervisión Operativa &bull; Pical S.A.</div>
+                <small style="color: var(--text-muted); display: block; margin-top: 0.15rem;">Manufacturas Americanas Cia. Ltda. &bull; Verificable</small>
               </div>
             </div>
             <button type="button" class="contact-copy-btn" data-copy="+593986388715" data-copy-label="Contacto de Operaciones">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
               <span>Copiar teléfono</span>
             </button>
           </div>
         </div>
 
-        <!-- Tarjeta de Gestión de Recursos Locales: cv.jpg y CV.pdf -->
-        <div class="arcade-cabinet-card" style="padding: 2rem; margin-top: 1.5rem; text-align: center; background: var(--bg-surface);">
-          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;" aria-hidden="true">📄</div>
-          <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text-primary); margin-bottom: 0.5rem;">
-            Documento Gráfico de Hoja de Vida (cv.jpg)
-          </h3>
-          <p style="color: var(--text-secondary); max-width: 650px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
-            Accede al currículum vitae oficial en formato gráfico de alta definición (1200 &times; 1700 px) vinculado en la carpeta raíz del proyecto,
-            con visor interactivo con zoom o descarga directa instantánea.
+        <!-- Tarjeta Elegante de Recursos de Hoja de Vida (CV) -->
+        <div class="cv-resource-card">
+          <div class="cv-resource-badge" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>DOCUMENTO PROFESIONAL OFICIAL</span>
+          </div>
+
+          <h3 class="cv-resource-title">Currículum Vitae Oficial &bull; Victor Moran</h3>
+          <p class="cv-resource-desc">
+            Visualiza la hoja de vida curricular en alta definición mediante el visor interactivo o descárgala en tu formato preferido.
           </p>
 
-          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <div class="cv-resource-actions">
             <button type="button" class="btn btn-primary" data-open-modal-img="cv"
-              aria-label="Abrir cv.jpg en visor modal interactivo con zoom">
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
+              aria-label="Abrir hoja de vida en visor modal interactivo con zoom">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                 <circle cx="8.5" cy="8.5" r="1.5"></circle>
                 <polyline points="21 15 16 10 5 21"></polyline>
               </svg>
-              <span>Abrir cv.jpg en Visor Modal</span>
+              <span>Ver Hoja de Vida</span>
             </button>
 
             <a href="cv.jpg" download="Victor_Moran_CV.jpg" class="btn btn-secondary"
-              aria-label="Descargar archivo gráfico cv.jpg directamente">
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
+              aria-label="Descargar currículum en formato gráfico JPG de alta definición">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
               </svg>
-              <span>Descargar cv.jpg</span>
+              <span>Descargar JPG</span>
             </a>
 
             <a href="assets/docs/CV.pdf" download="Victor_Moran_CV.pdf" class="btn btn-secondary"
-              aria-label="Descargar currículum vitae en formato PDF (97 KB)">
-              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
+              aria-label="Descargar currículum vitae en formato PDF oficial">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
               </svg>
-              <span>Descargar CV.pdf</span>
+              <span>Descargar PDF</span>
             </a>
           </div>
         </div>
