@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" data-theme="light">
 
 <head>
@@ -224,90 +224,98 @@
     </button>
 
     <div id="floating-a11y-content" class="floating-a11y-content">
-      <!-- Botón alternativo de tema -->
-      <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema claro / oscuro"
-        aria-pressed="false" title="Cambiar tema">
-        <svg class="theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
-        <svg class="theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-      </button>
+      <div class="a11y-compact-panel" role="region" aria-label="Herramientas de accesibilidad y visualización">
+        <!-- Fila 1: Selector de Tema + Escalado de Fuente Segmentado -->
+        <div class="a11y-panel-top">
+          <!-- Botón de tema claro / oscuro -->
+          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Cambiar tema claro / oscuro"
+            aria-pressed="false" title="Cambiar tema claro / oscuro">
+            <svg class="theme-icon-sun" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon-moon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
 
-      <!-- Controles obligatorios para escalado de fuente: 100%, 115%, 130% -->
-      <div class="text-size-controls" role="group" aria-label="Escalado de tamaño de fuente">
-        <button type="button" class="size-btn active" data-scale="1" data-label="100%"
-          aria-label="Escala de fuente normal al 100%" aria-pressed="true" title="Tamaño 100%">
-          100%
-        </button>
-        <button type="button" class="size-btn" data-scale="1.15" data-label="115%"
-          aria-label="Escalar fuente al 115%" aria-pressed="false" title="Tamaño 115%">
-          115%
-        </button>
-        <button type="button" class="size-btn" data-scale="1.30" data-label="130%"
-          aria-label="Escalar fuente al 130%" aria-pressed="false" title="Tamaño 130%">
-          130%
-        </button>
-      </div>
+          <!-- Segmented control de tamaño de fuente: 100%, 115%, 130% -->
+          <div class="text-size-controls" role="group" aria-label="Escalado de tamaño de fuente">
+            <button type="button" class="size-btn active" data-scale="1" data-label="100%"
+              aria-label="Escala de fuente normal al 100%" aria-pressed="true" title="Tamaño 100%">
+              100%
+            </button>
+            <button type="button" class="size-btn" data-scale="1.15" data-label="115%"
+              aria-label="Escalar fuente al 115%" aria-pressed="false" title="Tamaño 115%">
+              115%
+            </button>
+            <button type="button" class="size-btn" data-scale="1.30" data-label="130%"
+              aria-label="Escalar fuente al 130%" aria-pressed="false" title="Tamaño 130%">
+              130%
+            </button>
+          </div>
+        </div>
 
-      <div class="floating-icons-row" role="group" aria-label="Ajustes complementarios de visualización">
-        <!-- Botón Modo Alto Contraste (WCAG AAA) -->
-        <button type="button" id="high-contrast-toggle" class="header-icon-btn"
-          aria-label="Alternar Modo de Alto Contraste (WCAG AAA)" aria-pressed="false"
-          title="Alto Contraste AAA">
-          <span style="font-weight: 900; font-size: 0.78rem;">AAA</span>
-        </button>
+        <!-- Fila 2: Herramientas complementarias en pastilla unificada -->
+        <div class="floating-icons-row" role="group" aria-label="Ajustes complementarios de accesibilidad">
+          <!-- Botón Modo Alto Contraste (WCAG AAA) -->
+          <button type="button" id="high-contrast-toggle" class="header-icon-btn"
+            aria-label="Alternar Modo de Alto Contraste (WCAG AAA)" aria-pressed="false"
+            title="Alto Contraste AAA">
+            <span style="font-weight: 900; font-size: 0.76rem;">AAA</span>
+          </button>
 
-        <!-- Botón Síntesis de Voz (Text-to-Speech) -->
-        <button type="button" id="tts-toggle-btn" class="header-icon-btn"
-          aria-label="Activar o detener lectura por voz sintetizada"
-          title="Lectura por voz (TTS)">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
-            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-            <line x1="12" y1="19" x2="12" y2="23"></line>
-            <line x1="8" y1="23" x2="16" y2="23"></line>
-          </svg>
-        </button>
+          <!-- Botón Síntesis de Voz (Text-to-Speech) -->
+          <button type="button" id="tts-toggle-btn" class="header-icon-btn"
+            aria-label="Activar o detener lectura por voz sintetizada"
+            title="Lectura por voz (TTS)">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="23"></line>
+              <line x1="8" y1="23" x2="16" y2="23"></line>
+            </svg>
+          </button>
 
-        <!-- Botón Pausar/Activar Lluvia Matrix -->
-        <button type="button" id="matrix-toggle-btn" class="header-icon-btn"
-          aria-label="Activar o pausar efecto de lluvia Matrix" aria-pressed="true"
-          title="Lluvia Matrix">
-          <span style="font-family: monospace; font-weight: 800; font-size: 0.8rem; color: #00FF66;">[M]</span>
-        </button>
+          <!-- Botón Pausar/Activar Lluvia Matrix -->
+          <button type="button" id="matrix-toggle-btn" class="header-icon-btn"
+            aria-label="Activar o pausar efecto de lluvia Matrix" aria-pressed="true"
+            title="Lluvia Matrix">
+            <span style="font-family: monospace; font-weight: 800; font-size: 0.78rem; color: #00FF66;">[M]</span>
+          </button>
 
-        <!-- Botón Reducción de Animaciones -->
-        <button type="button" id="reduced-motion-toggle" class="header-icon-btn"
-          aria-label="Alternar reducción de animaciones" aria-pressed="false"
-          title="Reducir animaciones">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
-            <rect x="6" y="4" width="4" height="16"></rect>
-            <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>
-        </button>
+          <!-- Botón Reducción de Animaciones -->
+          <button type="button" id="reduced-motion-toggle" class="header-icon-btn"
+            aria-label="Alternar reducción de animaciones" aria-pressed="false"
+            title="Reducir animaciones">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+          </button>
 
-        <!-- Botón Efectos de Sonido Flotante -->
-        <button type="button" id="floating-sound-toggle" class="header-icon-btn is-active"
-          aria-label="Activar o silenciar efectos sonoros arcade" aria-pressed="true"
-          title="SFX ON / MUTE">
-          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2">
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-          </svg>
-        </button>
+          <!-- Botón Efectos de Sonido Flotante -->
+          <button type="button" id="floating-sound-toggle" class="header-icon-btn is-active"
+            aria-label="Activar o silenciar efectos sonoros arcade" aria-pressed="true"
+            title="SFX ON / MUTE">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </aside>
@@ -324,23 +332,13 @@
       <div class="container">
         <div class="hero-wrapper">
 
-          <!-- Fotografía oficial vinculada localmente (foto.jpg) con visor modal interactivo -->
+          <!-- Fotografía oficial vinculada localmente (foto.jpg) con visor modal interactivo al hacer clic -->
           <div class="hero-avatar-container">
             <div class="hero-avatar-frame arcade-cabinet-card" style="cursor: pointer;" data-open-modal-img="foto"
               role="button" tabindex="0" aria-label="Abrir fotografía oficial foto.jpg en visor modal interactivo">
               <img src="foto.jpg"
                 alt="Fotografía oficial de Victor Moran, estudiante de Ingeniería en Software de la Universidad de Guayaquil"
-                class="hero-avatar-img" width="240" height="240">
-            </div>
-            <div style="margin-top: 0.85rem; display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
-              <button type="button" class="btn btn-secondary" style="font-size: 0.82rem; padding: 0.4rem 0.8rem;"
-                data-open-modal-img="foto" aria-label="Ver fotografía oficial foto.jpg en grande">
-                🔍 Ver foto.jpg
-              </button>
-              <a href="foto.jpg" download="Victor_Moran_Foto.jpg" class="btn btn-secondary"
-                style="font-size: 0.82rem; padding: 0.4rem 0.8rem;" aria-label="Descargar fotografía foto.jpg directamente">
-                ⬇️ Descargar foto
-              </a>
+                class="hero-avatar-img" width="260" height="260">
             </div>
           </div>
 
@@ -698,142 +696,138 @@
         </p>
 
         <div class="skills-grid">
-          <!-- Columna 1: Habilidades Blandas 4.0 -->
-          <div class="skills-category">
+          <!-- Columna 1: Habilidades Blandas 4.0 con Barras HUD Arcade -->
+          <div class="skills-category arcade-cabinet-card" style="padding: 1.5rem;">
             <h3 class="subsection-heading">
-              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
+              <span class="arcade-ko-pill">P1</span>
               <span>Habilidades Blandas 4.0</span>
             </h3>
 
-            <div class="skills-list">
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Trabajo en Equipo bajo Presión y Ritmo Rápido</span>
-                  <span class="skill-level-text">Sobresaliente (95%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Trabajo en equipo bajo presión: 95%">
-                  <div class="skill-bar-fill" style="width: 95%;"></div>
-                </div>
+            <!-- HUD Bar Trabajo en Equipo -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Trabajo en Equipo bajo Presión</span>
+                <span class="sf-hud-val">95% HP</span>
               </div>
-
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Pensamiento Crítico y Resolución Estratégica</span>
-                  <span class="skill-level-text">Sobresaliente (95%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Pensamiento crítico: 95%">
-                  <div class="skill-bar-fill" style="width: 95%;"></div>
-                </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Trabajo en equipo bajo presión nivel 95%">
+                <div class="sf-lifebar-fill" style="width: 95%;"></div>
               </div>
+            </div>
 
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Comunicación Asertiva, Empatía y Escucha Activa</span>
-                  <span class="skill-level-text">Alto (90%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Comunicación asertiva: 90%">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
+            <!-- HUD Bar Pensamiento Crítico -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Pensamiento Crítico y Resolución</span>
+                <span class="sf-hud-val">95% HP</span>
               </div>
-
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Adaptabilidad, Resiliencia y Flexibilidad Operativa</span>
-                  <span class="skill-level-text">Alto (90%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Adaptabilidad: 90%">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Pensamiento crítico nivel 95%">
+                <div class="sf-lifebar-fill" style="width: 95%;"></div>
               </div>
+            </div>
 
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Ética y Compromiso con la Accesibilidad Web Universal</span>
-                  <span class="skill-level-text">Pleno (100%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Compromiso accesibilidad: 100%">
-                  <div class="skill-bar-fill" style="width: 100%;"></div>
-                </div>
+            <!-- HUD Bar Comunicación Asertiva -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Comunicación Asertiva y Empatía</span>
+                <span class="sf-hud-val">90% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Comunicación asertiva nivel 90%">
+                <div class="sf-lifebar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar Adaptabilidad -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Adaptabilidad y Resiliencia Operativa</span>
+                <span class="sf-hud-val">90% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Adaptabilidad nivel 90%">
+                <div class="sf-lifebar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar Ética y Accesibilidad -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Ética &amp; Accesibilidad Web Universal</span>
+                <span class="sf-hud-val">100% MAX</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Compromiso accesibilidad nivel 100%">
+                <div class="sf-lifebar-fill" style="width: 100%;"></div>
               </div>
             </div>
           </div>
 
-          <!-- Columna 2: Competencias Operativas & Comerciales -->
-          <div class="skills-category">
+          <!-- Columna 2: Competencias Operativas & Puntos de Venta con Barras HUD Arcade -->
+          <div class="skills-category arcade-cabinet-card" style="padding: 1.5rem;">
             <h3 class="subsection-heading">
-              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              </svg>
+              <span class="arcade-ko-pill">P2</span>
               <span>Competencias Operativas &amp; Puntos de Venta</span>
             </h3>
 
-            <div class="skills-list">
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Manejo de POS, Datafast, Medianet y DeUna</span>
-                  <span class="skill-level-text">Avanzado (95%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Manejo de POS: 95%">
-                  <div class="skill-bar-fill" style="width: 95%;"></div>
-                </div>
+            <!-- HUD Bar Manejo POS -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Manejo de POS, Datafast y DeUna</span>
+                <span class="sf-hud-val">95% HP</span>
               </div>
-
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Gestión de Caja, Apertura, Cierre y Cuadre Diario</span>
-                  <span class="skill-level-text">Avanzado (95%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Gestión de caja: 95%">
-                  <div class="skill-bar-fill" style="width: 95%;"></div>
-                </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Manejo de POS nivel 95%">
+                <div class="sf-lifebar-fill" style="width: 95%;"></div>
               </div>
+            </div>
 
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Control, Percha y Auditoría de Inventarios</span>
-                  <span class="skill-level-text">Avanzado (90%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Control de inventarios: 90%">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
+            <!-- HUD Bar Gestión de Caja -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Gestión de Caja, Apertura y Cuadre Diario</span>
+                <span class="sf-hud-val">95% HP</span>
               </div>
-
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Atención al Cliente y Negociación en Ventas Retail</span>
-                  <span class="skill-level-text">Avanzado (95%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Atención al cliente: 95%">
-                  <div class="skill-bar-fill" style="width: 95%;"></div>
-                </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Gestión de caja nivel 95%">
+                <div class="sf-lifebar-fill" style="width: 95%;"></div>
               </div>
+            </div>
 
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Estándares de Calidad e Higiene Ocupacional</span>
-                  <span class="skill-level-text">Alto (90%)</span>
-                </div>
-                <div class="skill-bar-wrapper" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
-                  aria-label="Higiene y calidad: 90%">
-                  <div class="skill-bar-fill" style="width: 90%;"></div>
-                </div>
+            <!-- HUD Bar Control de Inventarios -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Control, Percha y Auditoría de Stock</span>
+                <span class="sf-hud-val">90% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Control de inventarios nivel 90%">
+                <div class="sf-lifebar-fill" style="width: 90%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar Atención al Cliente -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Atención al Cliente y Negociación Retail</span>
+                <span class="sf-hud-val">95% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Atención al cliente nivel 95%">
+                <div class="sf-lifebar-fill" style="width: 95%;"></div>
+              </div>
+            </div>
+
+            <!-- HUD Bar Estándares de Calidad -->
+            <div class="sf-hud-bar-container">
+              <div class="sf-hud-bar-header">
+                <span class="sf-hud-name">Estándares de Calidad e Higiene POS</span>
+                <span class="sf-hud-val">90% HP</span>
+              </div>
+              <div class="sf-lifebar-frame" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                aria-label="Higiene y calidad nivel 90%">
+                <div class="sf-lifebar-fill" style="width: 90%;"></div>
               </div>
             </div>
           </div>
