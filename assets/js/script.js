@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SCRIPT PRINCIPAL: script.js
  * Perfil Profesional Digital Interactivo - Victor Moran
  * Ingeniería en Software - Universidad de Guayaquil (UG)
@@ -356,12 +356,8 @@
       splashScreen.setAttribute("aria-hidden", "true");
 
       // Si el resumen de bienvenida está presente, enfocar su botón de ingreso
-      if (btnEnterPortfolio && bodyElement.classList.contains("intro-active")) {
-        btnEnterPortfolio.focus();
-      } else {
-        const main = document.getElementById("main-content");
-        if (main) main.focus();
-      }
+      const main = document.getElementById("main-content");
+      if (main) main.focus();
       announceToScreenReader("Introducción finalizada. Bienvenido al portafolio de Victor Moran.");
     }, 650);
   }
@@ -958,70 +954,8 @@
   }
 
   // ==========================================================================
-  // 14. PANTALLA DE RESUMEN EJECUTIVO (GATEWAY Y MODAL)
+  // 14. (Resumen ejecutivo eliminado)
   // ==========================================================================
-  function closeSummaryModal() {
-    if (!summaryIntroScreen) return;
-    summaryIntroScreen.classList.add("fade-out");
-    setTimeout(() => {
-      summaryIntroScreen.classList.remove("is-modal", "fade-out");
-      summaryIntroScreen.style.display = "none";
-      summaryIntroScreen.setAttribute("aria-hidden", "true");
-      bodyElement.classList.remove("summary-modal-active");
-      if (summaryCloseModalBtn) summaryCloseModalBtn.style.display = "none";
-      if (navSummaryBtn) navSummaryBtn.focus();
-      playArcadeClick();
-      announceToScreenReader("Resumen cerrado.");
-    }, 280);
-  }
-
-  function openSummaryModal() {
-    if (!summaryIntroScreen) return;
-    summaryIntroScreen.style.display = "flex";
-    summaryIntroScreen.setAttribute("aria-hidden", "false");
-    summaryIntroScreen.classList.remove("fade-out");
-    summaryIntroScreen.classList.add("is-modal");
-    bodyElement.classList.add("summary-modal-active");
-    if (summaryCloseModalBtn) summaryCloseModalBtn.style.display = "inline-flex";
-    if (btnEnterPortfolio) btnEnterPortfolio.focus();
-    playArcadeClick();
-    announceToScreenReader("Resumen ejecutivo abierto. Pulsa Escape para cerrar.");
-  }
-
-  function enterFullPortfolio() {
-    if (!summaryIntroScreen) return;
-    if (summaryIntroScreen.classList.contains("is-modal")) {
-      closeSummaryModal();
-      return;
-    }
-
-    summaryIntroScreen.classList.add("fade-out");
-    bodyElement.classList.remove("intro-active");
-
-    const siteHeader = document.querySelector(".site-header");
-    if (mainContent) mainContent.classList.add("page-reveal-anim");
-    if (siteHeader) siteHeader.classList.add("page-reveal-anim");
-
-    playArcadeWhoosh();
-
-    setTimeout(() => {
-      summaryIntroScreen.style.display = "none";
-      summaryIntroScreen.setAttribute("aria-hidden", "true");
-      if (mainContent) {
-        mainContent.setAttribute("tabindex", "-1");
-        mainContent.focus();
-      }
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      announceToScreenReader("Has ingresado al portafolio completo de Victor Moran.");
-    }, 420);
-  }
-
-  if (btnEnterPortfolio) btnEnterPortfolio.addEventListener("click", enterFullPortfolio);
-  if (summaryCloseModalBtn) summaryCloseModalBtn.addEventListener("click", closeSummaryModal);
-  if (navSummaryBtn) navSummaryBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    openSummaryModal();
-  });
 
   // ==========================================================================
   // 15. FORMULARIO DE CONTACTO COMPATIBLE CON NETLIFY

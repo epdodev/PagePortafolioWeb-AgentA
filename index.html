@@ -17,7 +17,7 @@
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕹️</text></svg>">
 </head>
 
-<body class="intro-active">
+<body>
 
   <!-- Enlace accesible de salto al contenido principal (WCAG 2.4.1) -->
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -61,203 +61,7 @@
     <div class="splash-timer-bar" aria-hidden="true"></div>
   </aside>
 
-  <!-- ======================================================================
-       PANTALLA DE RESUMEN EJECUTIVO PREVIO AL INGRESO (GATEWAY SUMMARY)
-       ====================================================================== -->
-  <aside id="summary-intro-screen" class="summary-intro-screen" aria-label="Resumen ejecutivo del perfil profesional">
-    <div class="summary-backdrop" aria-hidden="true"></div>
 
-    <div class="summary-container">
-      <div class="summary-card" role="dialog" aria-modal="true" aria-labelledby="summary-card-name"
-        aria-describedby="summary-bio-text">
-
-        <!-- Barra superior del resumen: Badge de estado y controles -->
-        <div class="summary-top-bar">
-          <div class="summary-status-pill" aria-label="Estado profesional">
-            <span class="status-pulse-dot" aria-hidden="true"></span>
-            <span>Profesional 4.0 &bull; Disponible para nuevos desafíos</span>
-          </div>
-
-          <div class="summary-top-controls">
-            <!-- Botón de cambio de tema dentro del resumen -->
-            <button type="button" id="summary-theme-toggle" class="summary-theme-btn"
-              aria-label="Cambiar tema claro / oscuro" title="Cambiar tema claro / oscuro">
-              <svg class="theme-icon-sun" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-              </svg>
-              <svg class="theme-icon-moon" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-              </svg>
-            </button>
-
-            <!-- Botón para cerrar resumen cuando se abre como modal -->
-            <button type="button" id="summary-close-modal-btn" class="summary-close-btn"
-              aria-label="Cerrar resumen y volver al portafolio completo" title="Cerrar resumen" style="display: none;">
-              <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2" stroke-linecap="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Encabezado con Avatar, Nombre y Rol -->
-        <div class="summary-hero">
-          <div class="summary-avatar-frame">
-            <img src="foto.jpg" alt="Fotografía de Victor Moran, estudiante de Ingeniería en Software de la UG"
-              class="summary-avatar-img" width="96" height="96">
-          </div>
-          <div class="summary-hero-info">
-            <span class="summary-hero-tag">Resumen Profesional 4.0</span>
-            <h2 id="summary-card-name" class="summary-card-name">Victor Moran</h2>
-            <p class="summary-card-subtitle">Ingeniero de Software en Formación &bull; Universidad de Guayaquil (UG)</p>
-            <div class="summary-location-pill">
-              <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Babahoyo y Portete &bull; Guayaquil, Ecuador</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Extracto profesional conciso -->
-        <div class="summary-bio-card">
-          <p id="summary-bio-text" class="summary-bio-paragraph">
-            Estudiante activo de <strong>Ingeniería en Software</strong> en la <strong>Universidad de Guayaquil (UG)</strong>,
-            desarrollador de la aplicación web <strong>Luuv</strong> y enfocado en la Industria 4.0. Combino dominio en
-            arquitecturas de software modernas (Java, Spring Boot, WebSockets, C#, Python, SQL) con sólidas habilidades blandas,
-            experiencia en gestión de puntos de venta e inventarios, y un compromiso ético con la <strong>Accesibilidad Web Universal (WCAG 2.1 AA/AAA)</strong>.
-          </p>
-        </div>
-
-        <!-- Grid de 4 pilares destacados del perfil -->
-        <div class="summary-pillars-grid" role="list">
-          <div class="summary-pillar" role="listitem">
-            <div class="summary-pillar-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-              </svg>
-            </div>
-            <div class="summary-pillar-body">
-              <span class="summary-pillar-title">Formación Superior</span>
-              <strong class="summary-pillar-highlight">Ingeniería en Software</strong>
-              <span class="summary-pillar-meta">Universidad de Guayaquil (UG)</span>
-            </div>
-          </div>
-
-          <div class="summary-pillar" role="listitem">
-            <div class="summary-pillar-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              </svg>
-            </div>
-            <div class="summary-pillar-body">
-              <span class="summary-pillar-title">Experiencia Operativa</span>
-              <strong class="summary-pillar-highlight">Caja POS &bull; Inventarios</strong>
-              <span class="summary-pillar-meta">Pical S.A. &bull; TÍA S.A. &bull; Carl's Jr.</span>
-            </div>
-          </div>
-
-          <div class="summary-pillar" role="listitem">
-            <div class="summary-pillar-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
-            </div>
-            <div class="summary-pillar-body">
-              <span class="summary-pillar-title">Proyecto en Producción</span>
-              <strong class="summary-pillar-highlight">Luuv Web App</strong>
-              <span class="summary-pillar-meta">Spring Boot &bull; WebSockets &bull; Cloud</span>
-            </div>
-          </div>
-
-          <div class="summary-pillar" role="listitem">
-            <div class="summary-pillar-icon" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 14 14"></polyline>
-              </svg>
-            </div>
-            <div class="summary-pillar-body">
-              <span class="summary-pillar-title">Bilingüismo &amp; Algoritmos</span>
-              <strong class="summary-pillar-highlight">Inglés B2 &bull; C#, Java, Python</strong>
-              <span class="summary-pillar-meta">Pensamiento Crítico &bull; Trabajo bajo presión</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Badges / Tags de especialidades -->
-        <div class="summary-tags-row" aria-label="Especialidades destacadas">
-          <span class="summary-badge-chip">💻 Software &amp; Algoritmos</span>
-          <span class="summary-badge-chip">☁️ Render Cloud &amp; Netlify</span>
-          <span class="summary-badge-chip">💳 POS, Datafast &amp; DeUna</span>
-          <span class="summary-badge-chip">📦 Control de Inventario 4.0</span>
-          <span class="summary-badge-chip">♿ WCAG 2.1 AA/AAA Inclusivo</span>
-          <span class="summary-badge-chip">🗣️ Español Nativo / Inglés B2</span>
-        </div>
-
-        <!-- Acciones Principales -->
-        <div class="summary-actions-footer">
-          <button type="button" id="btn-enter-portfolio" class="btn-enter-portfolio"
-            aria-label="Ingresar para ver las 9 secciones completas del portafolio">
-            <span class="btn-enter-text">Ingresar al Portafolio Completo</span>
-            <span class="btn-enter-icon-wrap" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </span>
-          </button>
-
-          <!-- Botón modal para ver CV gráfico en alta resolución -->
-          <button type="button" class="btn btn-secondary btn-summary-download" data-open-modal-img="cv"
-            aria-label="Ver documento gráfico de la hoja de vida cv.jpg en visor modal">
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <circle cx="8.5" cy="8.5" r="1.5"></circle>
-              <polyline points="21 15 16 10 5 21"></polyline>
-            </svg>
-            <span>Ver cv.jpg</span>
-          </button>
-
-          <a href="cv.jpg" class="btn btn-secondary btn-summary-download" download="Victor_Moran_CV.jpg"
-            aria-label="Descargar hoja de vida cv.jpg directamente (523 KB)">
-            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span>Descargar cv.jpg</span>
-          </a>
-        </div>
-
-        <div class="summary-keyboard-hint">
-          <small>Presiona <kbd>Enter</kbd> o haz clic en <strong>Ingresar</strong> para explorar las 9 secciones completas.</small>
-        </div>
-
-      </div>
-    </div>
-  </aside>
 
   <!-- ======================================================================
        VISOR MODAL INTERACTIVO PARA RECURSOS LOCALES (FOTO.JPG Y CV.JPG)
@@ -343,19 +147,7 @@
       <!-- Menú de navegación principal con las 9 secciones en orden compacto -->
       <nav id="nav-menu" class="nav-menu" aria-label="Navegación principal de las 9 secciones">
         <ul class="nav-list" role="list">
-          <li>
-            <button type="button" id="nav-summary-btn" class="nav-summary-trigger"
-              aria-label="Ver tarjeta de resumen profesional ejecutivo">
-              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-              </svg>
-              <span>Resumen</span>
-            </button>
-          </li>
+
           <li><a href="#acerca-de-mi" class="nav-link">Acerca de mí</a></li>
           <li><a href="#estudios" class="nav-link">Estudios</a></li>
           <li><a href="#conocimientos" class="nav-link">Conocimientos</a></li>
