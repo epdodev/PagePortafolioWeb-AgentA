@@ -758,12 +758,6 @@ section[id] {
   flex-shrink: 0;
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
 /* Botones estándar de acción unificados */
 button, input, select, textarea {
   font-family: inherit;
@@ -816,6 +810,106 @@ button, input, select, textarea {
   color: var(--accent-color);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Acciones del Hero Principales */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.95rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.hero-actions .btn {
+  padding: 0.8rem 1.55rem;
+  font-size: 0.98rem;
+  font-weight: 800;
+  border-radius: var(--radius-md);
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 1. Botón Contactar ahora */
+.btn-hero-contact {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF !important;
+  border: 1.5px solid transparent;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+}
+
+[data-theme="dark"] .btn-hero-contact {
+  background: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+  color: #0B0F19 !important;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.45);
+}
+
+.btn-hero-contact:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.55);
+}
+
+/* 2. Botón Ver CV (Interactivo con resplandor cyan) */
+.btn-hero-view-cv {
+  background: rgba(3, 105, 161, 0.08);
+  color: var(--accent-color);
+  border: 1.5px solid rgba(3, 105, 161, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .btn-hero-view-cv {
+  background: rgba(56, 189, 248, 0.1);
+  color: #F8FAFC;
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hero-view-cv:hover {
+  background: var(--accent-color);
+  color: #FFFFFF !important;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.4);
+}
+
+[data-theme="dark"] .btn-hero-view-cv:hover {
+  background: rgba(56, 189, 248, 0.22);
+  color: #38BDF8 !important;
+  border-color: #38BDF8;
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35);
+}
+
+/* 3. Botón Descargar CV (Elegante con resplandor dorado sutil) */
+.btn-hero-download-cv {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .btn-hero-download-cv {
+  background: rgba(255, 255, 255, 0.06);
+  color: #F8FAFC;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hero-download-cv:hover {
+  background: var(--bg-surface-alt);
+  border-color: var(--sf-gold);
+  color: var(--sf-gold) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 215, 0, 0.25);
+}
+
+[data-theme="dark"] .btn-hero-download-cv:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: #FFD700;
+  color: #FFD700 !important;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
 }
 
 /* --------------------------------------------------------------------------
